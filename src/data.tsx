@@ -6,21 +6,25 @@ export const experienceHistory = [
     business: "Lapzo",
     period: "2022 - 2024",
     body: [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Maintenance of the main application of the company developed with React, Vitejs, Hasura, Graphql and RadixUI",
+      "During this work I was solving bugs and creating new functionalities for the application both in the backend and in the frontend",
     ],
   },
   {
     business: "Inetum",
     period: "2021 - 2022",
     body: [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "Frontend development for an application developed with Nextjs, React, Express, Material UI, ApolloServer and GraphQL.",
+      "Perform a redesign for the stock management application",
     ],
   },
   {
     business: "Jabu",
     period: "2021 - 2021",
     body: [
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit",
+      "I was part of the team that develops a new version of the sales application",
+      "This application was developed with Redux, Next, Nodejs, React, Serverless Framkework using PostgreSql (Prisma)",
+      "Something that was taken into account was the optimization of each aspect of the application",
     ],
   },
 ];
