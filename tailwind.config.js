@@ -26,6 +26,7 @@ module.exports = {
       colors: {
         "primary-color": "var(--primary-color)",
         "primary-text-color": "var(--text-color-1)",
+        "secondary-text-color": "var(--text-color-2)",
         "primary-bg": "var(--primary-bg)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

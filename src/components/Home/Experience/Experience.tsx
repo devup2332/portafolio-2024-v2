@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 const ExperienceHome = () => {
   const { t } = useTranslation();
   return (
-    <div className="pb-28">
+    <div className="pb-28" id="experience">
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.experience.title")}
       </h1>

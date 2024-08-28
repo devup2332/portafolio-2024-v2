@@ -30,6 +30,36 @@
     },
     "projects": {
       "title": "Projects"
+    },
+    "contact": {
+      "title": "Contact",
+      "form": {
+        "firstName": {
+          "label": "First Name",
+          "placeholder": "First Name"
+        },
+        "lastName": {
+          "label": "Last Name",
+          "placeholder": "Last Name"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "999999999"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "youremail@email.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Leave me a message"
+        },
+        "button": "Send"
+      }
+    },
+    "footer": {
+      "text": "Page developed by",
+      "name": "Diego Rojas"
     }
   }
 }

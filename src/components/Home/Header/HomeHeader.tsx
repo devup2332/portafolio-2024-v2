@@ -1,5 +1,5 @@
 import { MenuIcon } from "@/components/Icons";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/UI/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,50 +10,33 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/UI/dropdown-menu";
+import { homeheaderLinks } from "@/utils/homeHeaderLinks";
 import { useTranslation } from "react-i18next";
 
-const links = [
-  {
-    label: "home.banner.menu.home",
-    path: "/",
-    sub: false,
-  },
-  {
-    label: "home.banner.menu.experience",
-    path: "/",
-    sub: false,
-  },
-
-  {
-    label: "home.banner.menu.projects",
-    path: "/",
-    sub: false,
-  },
-  {
-    label: "home.banner.menu.contact",
-    path: "/",
-    sub: false,
-  },
-  {
-    label: "home.banner.menu.languages.label",
-    path: "/",
-    sub: true,
-    children: [
-      {
-        label: "home.banner.menu.languages.english",
-      },
-      {
-        label: "home.banner.menu.languages.spanish",
-      },
-    ],
-  },
-];
+type ILanguageProp = "en" | "es";
 
 const HomeHeader = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const handleChangeLanguage = (language?: ILanguageProp) => {
+    const currentLanguage = i18n.language;
+    if (language) {
+      i18n.changeLanguage(language);
+    } else {
+      i18n.changeLanguage(currentLanguage === "en" ? "es" : "en");
+    }
+  };
+
+  const handleGoToSection = (section?: string) => {
+    if (!section) return;
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
-    <header className="font-bold text-2xl  py-4 sticky top-0 left-0 lg:py-8 bg-primary-bg z-10">
+    <header className="font-bold text-2xl  py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10">
       <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center">
         <button>
           <span>{t("home.banner.logo.firstName")} </span>
@@ -64,12 +47,13 @@ const HomeHeader = () => {
 
         <nav className="hidden xl:block">
           <ul>
-            {links.map(
+            {homeheaderLinks.map(
               (item, index) =>
                 !item.sub && (
                   <li
                     key={index}
                     className="inline-block mx-4 lg:text-base font-normal cursor-pointer"
+                    onClick={() => handleGoToSection(item.id)}
                   >
                     {t(item.label)}
                   </li>
@@ -78,8 +62,12 @@ const HomeHeader = () => {
           </ul>
         </nav>
 
-        <Button variant="ghost" className="hidden xl:block">
-          es
+        <Button
+          variant="ghost"
+          className="hidden xl:block"
+          onClick={() => handleChangeLanguage()}
+        >
+          {i18n.language === "en" ? "ES" : "EN"}
         </Button>
 
         <DropdownMenu>
@@ -88,7 +76,7 @@ const HomeHeader = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuGroup>
-              {links.map((item, index) => {
+              {homeheaderLinks.map((item, index) => {
                 return item.sub ? (
                   <DropdownMenuSub key={index}>
                     <DropdownMenuSubTrigger className="lg:text-base">
@@ -100,6 +88,9 @@ const HomeHeader = () => {
                           <DropdownMenuItem
                             key={index}
                             className="lg:text-base"
+                            onClick={() =>
+                              handleChangeLanguage(child.value as ILanguageProp)
+                            }
                           >
                             {t(child.label)}
                           </DropdownMenuItem>

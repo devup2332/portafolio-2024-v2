@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/UI/button";
 import { twMerge } from "tailwind-merge";
 
 const PrimaryButton = (props: ButtonProps) => {

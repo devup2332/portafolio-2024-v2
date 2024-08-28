@@ -6,7 +6,7 @@ import es from "@/translations/es/index.json";
 
 i18n.init({
   fallbackLng: "en",
-  debug: true,
+  debug: process.env.NODE_ENV === "development",
   resources: {
     en: {
       translation: en,

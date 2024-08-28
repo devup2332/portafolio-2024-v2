@@ -1,4 +1,5 @@
 import BannerHome from "@/components/Home/Banner/Banner";
+import ContactHome from "@/components/Home/Contact/Contact";
 import ExperienceHome from "@/components/Home/Experience/Experience";
 import HomeHeader from "@/components/Home/Header/HomeHeader";
 import Projects from "@/components/Home/Projects/Projects";
@@ -11,6 +12,7 @@ const Home = () => {
         <BannerHome />
         <ExperienceHome />
         <Projects />
+        <ContactHome />
       </div>
     </div>
   );
