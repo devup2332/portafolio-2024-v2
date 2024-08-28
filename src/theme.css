@@ -1,0 +1,19 @@
+:root {
+  --dark-primary-bg: #040605;
+  --dark-text-color-1: #ffffff;
+  --dark-text-color-2: #505050;
+  --dark-primary-color: #0aab6b;
+
+  --light-primary-bg: #ffffff;
+  --light-text-color-1: #000000;
+  --light-text-color-2: #505050;
+  --light-primary-color: #0aab6b;
+}
+
+html.dark {
+  --primary-bg: var(--dark-primary-bg);
+  --text-color-1: var(--dark-text-color-1);
+  --text-color-2: var(--dark-text-color-2);
+  --primary-color: var(--dark-primary-color);
+}
+

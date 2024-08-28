@@ -1,0 +1,35 @@
+{
+  "home": {
+    "banner": {
+      "logo": {
+        "firstName": "Diego",
+        "lastName": "Rojas"
+      },
+      "menu": {
+        "home": "Home",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact",
+        "languages": {
+          "label": "Languages",
+          "spanish": "Spanish",
+          "english": "English"
+        }
+      },
+      "body": {
+        "greeting": "Hi I'm",
+        "name": "Diego",
+        "greeting2": "I'm a",
+        "role": "Full Stack Developer",
+        "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney",
+        "button": "Contact me"
+      }
+    },
+    "experience": {
+      "title": "Experience"
+    },
+    "projects": {
+      "title": "Projects"
+    }
+  }
+}
