@@ -71,12 +71,17 @@ body {
   background-color: var(--primary-bg);
 }
 
-.boxShadow {
+.boxShadow:hover {
   box-shadow: 0px 0px 10px var(--primary-color);
 }
 
 .textShadow {
   text-shadow: 0px 0px 10px var(--primary-color);
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -85,4 +90,20 @@ input[type="number"]::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
   margin: 0;
+}
+
+.customUnderline {
+  padding: 0px 0px 5px 0px;
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.2s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 }

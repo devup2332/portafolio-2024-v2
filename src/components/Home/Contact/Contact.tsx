@@ -6,6 +6,10 @@ import PrimaryButton from "../PrimeryButton/PrimeryButton";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactSchemaType } from "@/schemas/contactSchema";
+import { toast } from "sonner";
+import { sleep } from "@/utils/sleep";
+import { useState } from "react";
+import { LoaderIcon } from "@/components/Icons";
 
 interface InputType {
   label: string;
@@ -59,17 +63,32 @@ const ContactHome = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<ContactSchemaType>({
     resolver: zodResolver(ContactSchema),
   });
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log({ data });
+  const onSubmit: SubmitHandler<FieldValues> = async () => {
+    const random = Math.floor(Math.random() * 2000);
+    setLoading(true);
+    await sleep(random);
+    setLoading(false);
+    reset();
+    toast.custom(() => (
+      <div className="px-5 py-3 rounded-md bg-primary-bg border-border border-2">
+        <h1 className="text-base font-bold text-primary-color">
+          {t("home.contact.toast.success.title")}
+        </h1>
+        <p className="text-sm">{t("home.contact.toast.success.body")}</p>
+      </div>
+    ));
   };
 
   const onError = () => {
     console.log({ errors });
   };
+
   return (
     <div className="mt-28" id="contact">
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
@@ -111,8 +130,9 @@ const ContactHome = () => {
         )}
         <PrimaryButton
           type="submit"
-          className="w-full lg:w-56 lg:col-start-1 lg:col-end-3 lg:justify-self-center"
+          className="w-full lg:w-56 lg:col-start-1 lg:col-end-3 lg:justify-self-center gap-2"
         >
+          {loading && <LoaderIcon className="animate-spin" />}
           {t("home.contact.form.button")}
         </PrimaryButton>
       </form>

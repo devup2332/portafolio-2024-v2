@@ -47,7 +47,7 @@ const ExperienceHome = () => {
                 className="border-l-primary-color border-l-8 px-10 pt-5 pb-20 relative grid gap-3"
                 key={index}
               >
-                <div className="absolute -top-4 -left-6 w-10 h-10 bg-primary-color rounded-full boxShadow" />
+                <div className="cursor-pointer absolute -top-4 -left-6 w-10 h-10 bg-primary-color rounded-full boxShadow" />
                 <h2 className={!isPar ? "opacity-100" : "lg:opacity-0"}>
                   <span className="text-primary-color font-bold text-xl">
                     {item.business}

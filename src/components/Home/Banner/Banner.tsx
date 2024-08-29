@@ -23,7 +23,7 @@ const BannerHome = () => {
             {t("home.banner.body.name")}
           </span>
         </h1>
-        <h2 className="font-bold text-sm text-center lg:text-left lg:text-base">
+        <h2 className="font-bold text-sm text-center lg:text-left lg:text-base xl:text-xl">
           {t("home.banner.body.greeting2")}{" "}
           <span className="text-primary-color">
             {t("home.banner.body.role")}
@@ -46,14 +46,21 @@ const BannerHome = () => {
             </TooltipProvider>
           ))}
         </div>
-        <PrimaryButton className="justify-self-center lg:justify-self-start lg:px-10 lg:text-base">
+        <PrimaryButton
+          className="justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
+          onClick={() => {
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           {t("home.banner.body.button")}
         </PrimaryButton>
       </div>
       <img
         src={bannerImageUrl}
         alt="Profile Image"
-        className="boxShadow hidden lg:block lg:w-[400px] lg:h-[400px] lg:justify-self-end object-cover rounded-full xl:w-[500px] xl:h-[500px]"
+        className="cursor-pointer transition-all boxShadow hidden lg:block lg:w-[400px] lg:h-[400px] lg:justify-self-end object-cover rounded-full xl:w-[500px] xl:h-[500px]"
       />
     </div>
   );

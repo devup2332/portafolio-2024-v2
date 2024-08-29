@@ -55,6 +55,12 @@
           "placeholder": "Leave me a message"
         },
         "button": "Send"
+      },
+      "toast": {
+        "success": {
+          "title": "Message was send successfully",
+          "body": "Thanks for contacting me, I will get back to you as soon as possible"
+        }
       }
     },
     "footer": {

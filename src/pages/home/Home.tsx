@@ -3,6 +3,7 @@ import ContactHome from "@/components/Home/Contact/Contact";
 import ExperienceHome from "@/components/Home/Experience/Experience";
 import HomeHeader from "@/components/Home/Header/HomeHeader";
 import Projects from "@/components/Home/Projects/Projects";
+import { Toaster } from "@/components/UI/sonner";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Projects />
         <ContactHome />
       </div>
+      <Toaster />
     </div>
   );
 };

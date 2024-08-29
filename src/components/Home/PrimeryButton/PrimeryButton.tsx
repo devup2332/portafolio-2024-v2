@@ -6,7 +6,7 @@ const PrimaryButton = (props: ButtonProps) => {
     <Button
       {...props}
       className={twMerge(
-        "bg-primary-color rounded-full w-fit py-6 px-6 text-sm boxShadow text-white hover:bg-green-700",
+        "bg-primary-color rounded-full w-fit py-6 px-6 text-sm text-white boxShadow transition-all",
         props.className
       )}
     >

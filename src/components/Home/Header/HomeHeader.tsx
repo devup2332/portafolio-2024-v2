@@ -36,7 +36,7 @@ const HomeHeader = () => {
     }
   };
   return (
-    <header className="font-bold text-2xl  py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10">
+    <header className="font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10">
       <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center">
         <button>
           <span>{t("home.banner.logo.firstName")} </span>
@@ -52,7 +52,7 @@ const HomeHeader = () => {
                 !item.sub && (
                   <li
                     key={index}
-                    className="inline-block mx-4 lg:text-base font-normal cursor-pointer"
+                    className="inline-block mx-4 lg:text-base font-normal cursor-pointer hover:text-primary-color transition-colors customUnderline"
                     onClick={() => handleGoToSection(item.id)}
                   >
                     {t(item.label)}
