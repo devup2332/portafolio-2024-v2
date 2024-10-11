@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 const ExperienceHome = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <div className="pb-28" id="experience">
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
@@ -28,7 +28,7 @@ const ExperienceHome = () => {
                   <span> - </span>
                   <span>{item.period}</span>
                 </h2>
-                {item.body.map((b, i) => {
+                {item.body[i18n.language as 'en' | 'es'].map((b, i) => {
                   return (
                     <p className="text-sm text-right lg:text-base" key={i}>
                       {b}
@@ -55,7 +55,7 @@ const ExperienceHome = () => {
                   <span> - </span>
                   <span>{item.period}</span>
                 </h2>
-                {item.body.map((b, i) => {
+                {item.body[i18n.language as 'en' | 'es'].map((b, i) => {
                   return (
                     <p
                       className={twMerge(
