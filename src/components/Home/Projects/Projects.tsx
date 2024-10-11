@@ -2,7 +2,7 @@ import { projects } from "@/data";
 import { useTranslation } from "react-i18next";
 
 const Projects = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <div id="projects">
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
@@ -15,6 +15,7 @@ const Projects = () => {
             <div
               key={index}
               className="rounded-xl overflow-hidden relative group cursor-pointer transition-all"
+              onClick={() => p.links && window.open(p.links[0]?.url, "_blank")}
             >
               <img
                 src={p.urlImage}
@@ -23,7 +24,7 @@ const Projects = () => {
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10">
                 <h2 className="font-bold">{p.name}</h2>
-                <p className="text-sm">{p.description}</p>
+                <p className="text-sm">{p.descriptions[i18n.language as "en" | "es"]}</p>
                 <div className="flex flex-wrap gap-x-3 gap-y-2">
                   {p.stack.map((s, i) => {
                     return (

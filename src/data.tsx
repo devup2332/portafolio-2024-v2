@@ -32,17 +32,25 @@ export const experienceHistory = [
 export const projects = [
   {
     stack: [
-      "React",
-      "TailwindCSS",
+      "React Native",
+      "Expo",
       "TypeScript",
-      "React Router",
-      "React i18next",
+      "React Navigation",
     ],
-    name: "Pikkit",
+    name: "Coffee App",
+    links: [
+      {
+        name: "Github",
+        url: "https://github.com/devup2332/coffee-app-v1"
+      }
+    ],
     urlImage:
-      "https://cdn.dribbble.com/users/4355162/screenshots/15419685/media/73e40d5cd35db42bda8cf8e1a96265d5.png",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+      "https://res.cloudinary.com/dder8kjda/image/upload/v1728654817/Screenshot_2024-10-11_08-52-59_pdioar.png",
+    descriptions: {
+      "en": "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
+      "es": "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+
+    }
   },
   {
     stack: [
@@ -55,8 +63,11 @@ export const projects = [
     name: "Pikkit",
     urlImage:
       "https://cdn.dribbble.com/users/4355162/screenshots/15411754/media/ae8775e9a2f29baada9e72dc252cabfc.png",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+    descriptions: {
+      "en": "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
+      "es": "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+
+    }
   },
   {
     stack: [
@@ -69,8 +80,11 @@ export const projects = [
     name: "Pikkit",
     urlImage:
       "https://cdn.dribbble.com/users/4355162/screenshots/15384741/media/cdda7348c23f0ea4e4f8c0ecfb79eeca.png",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+    descriptions: {
+      "en": "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
+      "es": "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+
+    }
   },
   {
     stack: [
@@ -83,8 +97,10 @@ export const projects = [
     name: "Pikkit",
     urlImage:
       "https://cdn.dribbble.com/users/4355162/screenshots/10720000/media/78c70fd04de8b57fcb31c110cb268c98.png",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+    descriptions: {
+      "en": "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
+      "es": "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+    },
   },
   {
     stack: [
@@ -97,8 +113,10 @@ export const projects = [
     name: "Pikkit",
     urlImage:
       "https://cdn.dribbble.com/users/4355162/screenshots/15841459/media/58937eebec017d2cf08c5c3264641f93.png",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+    descriptions: {
+      "en": "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
+      "es": "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+    },
   },
   {
     stack: [
@@ -111,7 +129,9 @@ export const projects = [
     name: "Pikkit",
     urlImage:
       "https://cdn.dribbble.com/users/4355162/screenshots/15865609/media/870380fac7cd9734191f28fe4dd04851.png",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+    descriptions: {
+      "en": "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
+      "es": "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+    },
   },
 ];
