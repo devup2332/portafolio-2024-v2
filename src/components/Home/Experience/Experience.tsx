@@ -1,11 +1,24 @@
 import { experienceHistory } from "@/data";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
+import "./Experience.module.css";
+import { useRef } from "react";
+import clsx from "clsx";
+import useElementVisible from "@/hooks/useElementVisible";
 
 const ExperienceHome = () => {
   const { t, i18n } = useTranslation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisible = useElementVisible(containerRef);
   return (
-    <div className="pb-28" id="experience">
+    <div
+      className={clsx(
+        "pb-28 mt-2 container",
+        isVisible ? "appearAnimation opacity-0" : "opacity-0",
+      )}
+      id="experience"
+      ref={containerRef}
+    >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.experience.title")}
       </h1>
@@ -28,7 +41,7 @@ const ExperienceHome = () => {
                   <span> - </span>
                   <span>{item.period}</span>
                 </h2>
-                {item.body[i18n.language as 'en' | 'es'].map((b, i) => {
+                {item.body[i18n.language as "en" | "es"].map((b, i) => {
                   return (
                     <p className="text-sm text-right lg:text-base" key={i}>
                       {b}
@@ -55,12 +68,12 @@ const ExperienceHome = () => {
                   <span> - </span>
                   <span>{item.period}</span>
                 </h2>
-                {item.body[i18n.language as 'en' | 'es'].map((b, i) => {
+                {item.body[i18n.language as "en" | "es"].map((b, i) => {
                   return (
                     <p
                       className={twMerge(
                         !isPar ? "opacity-100" : "lg:opacity-0",
-                        "text-sm xl:text-base"
+                        "text-sm xl:text-base",
                       )}
                       key={i}
                     >

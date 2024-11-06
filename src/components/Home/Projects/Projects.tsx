@@ -1,10 +1,18 @@
 import { projects } from "@/data";
+import useElementVisible from "@/hooks/useElementVisible";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 const Projects = () => {
   const { t, i18n } = useTranslation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisible = useElementVisible(containerRef);
   return (
-    <div id="projects">
+    <div
+      id="projects"
+      className={isVisible ? "appearAnimation opacity-0 " : "opacity-0"}
+      ref={containerRef}
+    >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.projects.title")}
       </h1>
@@ -24,7 +32,9 @@ const Projects = () => {
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10">
                 <h2 className="font-bold">{p.name}</h2>
-                <p className="text-sm">{p.descriptions[i18n.language as "en" | "es"]}</p>
+                <p className="text-sm">
+                  {p.descriptions[i18n.language as "en" | "es"]}
+                </p>
                 <div className="flex flex-wrap gap-x-3 gap-y-2">
                   {p.stack.map((s, i) => {
                     return (

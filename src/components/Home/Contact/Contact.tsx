@@ -8,8 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactSchemaType } from "@/schemas/contactSchema";
 import { toast } from "sonner";
 import { sleep } from "@/utils/sleep";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
+import clsx from "clsx";
+import useElementVisible from "@/hooks/useElementVisible";
 
 interface InputType {
   label: string;
@@ -68,6 +70,8 @@ const ContactHome = () => {
     resolver: zodResolver(ContactSchema),
   });
   const [loading, setLoading] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisible = useElementVisible(containerRef);
 
   const onSubmit: SubmitHandler<FieldValues> = async () => {
     const random = Math.floor(Math.random() * 2000);
@@ -90,7 +94,14 @@ const ContactHome = () => {
   };
 
   return (
-    <div className="mt-28" id="contact">
+    <div
+      className={clsx(
+        "mt-28",
+        isVisible ? "appearAnimation opacity-0" : "opacity-0",
+      )}
+      id="contact"
+      ref={containerRef}
+    >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.contact.title")}
       </h1>
@@ -126,7 +137,7 @@ const ContactHome = () => {
                 {...register(input.name)}
               ></Textarea>
             </div>
-          )
+          ),
         )}
         <PrimaryButton
           type="submit"

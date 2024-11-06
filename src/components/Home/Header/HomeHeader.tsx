@@ -36,7 +36,10 @@ const HomeHeader = () => {
     }
   };
   return (
-    <header className="font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10">
+    <header
+      className="fadeInAnimation  opacity-0 font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10"
+      style={{ animationDelay: "0.5" }}
+    >
       <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center">
         <button>
           <span>{t("home.banner.logo.firstName")} </span>
@@ -57,7 +60,7 @@ const HomeHeader = () => {
                   >
                     {t(item.label)}
                   </li>
-                )
+                ),
             )}
           </ul>
         </nav>

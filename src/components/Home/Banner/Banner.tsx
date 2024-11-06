@@ -13,7 +13,10 @@ const BannerHome = () => {
   const { t } = useTranslation();
   return (
     <div
-      className="h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16"
+      className="appearAnimation opacity-0 h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16 appearAnimation"
+      style={{
+        animationDelay: "1s",
+      }}
       id="banner"
     >
       <div className="grid gap-4 lg:gap-6">
