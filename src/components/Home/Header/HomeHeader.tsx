@@ -104,7 +104,7 @@ const HomeHeader = () => {
                   <DropdownMenuItem
                     key={index}
                     className="lg:text-base"
-                    onClick={() => goToSection(item.id)}
+                    onClick={() => goToSection(item.id!)}
                   >
                     {t(item.label)}
                   </DropdownMenuItem>

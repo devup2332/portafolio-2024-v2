@@ -61,12 +61,7 @@ const inputs: InputType[] = [
 
 const ContactHome = () => {
   const { t } = useTranslation();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactSchemaType>({
+  const { register, handleSubmit, reset } = useForm<ContactSchemaType>({
     resolver: zodResolver(ContactSchema),
   });
   const [loading, setLoading] = useState(false);

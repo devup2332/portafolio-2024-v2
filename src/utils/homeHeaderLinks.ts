@@ -4,7 +4,7 @@ interface IHomeHeaderLink {
   label: string;
   path: string;
   sub: boolean;
-  id: Section;
+  id?: Section;
   children?: {
     label: string;
     value: string;
