@@ -89,16 +89,11 @@ const ContactHome = () => {
     ));
   };
 
-  const onError = () => {
-    console.log({ errors });
-  };
+  const onError = () => {};
 
   return (
     <div
-      className={clsx(
-        "mt-28",
-        isVisible ? "appearAnimation opacity-0" : "opacity-0",
-      )}
+      className={clsx(isVisible ? "appearAnimation opacity-0" : "opacity-0")}
       id="contact"
       ref={containerRef}
     >

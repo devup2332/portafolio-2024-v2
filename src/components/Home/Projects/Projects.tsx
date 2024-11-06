@@ -17,7 +17,7 @@ const Projects = () => {
         {t("home.projects.title")}
       </h1>
 
-      <div className="mt-24 grid lg:grid-cols-2 xl:grid-cols-3 gap-12">
+      <div className="mt-24 grid lg:grid-cols-2 xl:grid-cols-3 gap-12 pb-28">
         {projects.map((p, index) => {
           return (
             <div

@@ -11,6 +11,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/UI/dropdown-menu";
+import goToSection, { Section } from "@/utils/goToSection";
 import { homeheaderLinks } from "@/utils/homeHeaderLinks";
 import { useTranslation } from "react-i18next";
 
@@ -28,16 +29,14 @@ const HomeHeader = () => {
     }
   };
 
-  const handleGoToSection = (section?: string) => {
+  const handleGoToSection = (section?: Section) => {
     if (!section) return;
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    goToSection(section);
   };
   return (
     <header
-      className="fadeInAnimation  opacity-0 font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10"
+      className="fadeInAnimation opacity-0 font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10"
+      id="homeheader"
       style={{ animationDelay: "0.5" }}
     >
       <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center">
@@ -102,7 +101,11 @@ const HomeHeader = () => {
                     </DropdownMenuPortal>
                   </DropdownMenuSub>
                 ) : (
-                  <DropdownMenuItem key={index} className="lg:text-base">
+                  <DropdownMenuItem
+                    key={index}
+                    className="lg:text-base"
+                    onClick={() => goToSection(item.id)}
+                  >
                     {t(item.label)}
                   </DropdownMenuItem>
                 );
