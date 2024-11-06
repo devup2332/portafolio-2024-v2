@@ -8,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/UI/tooltip";
+import goToSection from "@/utils/goToSection";
 
 const BannerHome = () => {
   const { t } = useTranslation();
@@ -52,9 +53,7 @@ const BannerHome = () => {
         <PrimaryButton
           className="justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
           onClick={() => {
-            document
-              .getElementById("contact")
-              ?.scrollIntoView({ behavior: "smooth" });
+            goToSection("contact");
           }}
         >
           {t("home.banner.body.button")}
