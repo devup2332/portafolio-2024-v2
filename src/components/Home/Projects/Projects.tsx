@@ -28,7 +28,7 @@ const Projects = () => {
               <img
                 src={p.urlImage}
                 alt={"image " + index + 1}
-                className="block object-cover"
+                className="block object-cover h-full"
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10">
                 <h2 className="font-bold">{p.name}</h2>
