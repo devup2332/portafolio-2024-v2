@@ -22,13 +22,13 @@ const Projects = () => {
           return (
             <div
               key={index}
-              className="rounded-xl overflow-hidden relative group cursor-pointer transition-all"
+              className="rounded-xl overflow-hidden relative group cursor-pointer transition-all h-56 md:h-80"
               onClick={() => p.links && window.open(p.links[0]?.url, "_blank")}
             >
               <img
                 src={p.urlImage}
                 alt={"image " + index + 1}
-                className="block object-cover h-full"
+                className="block object-cover h-full w-full"
               />
               <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10">
                 <h2 className="font-bold">{p.name}</h2>
