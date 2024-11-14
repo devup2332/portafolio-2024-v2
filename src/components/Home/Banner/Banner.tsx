@@ -11,6 +11,7 @@ import {
 import goToSection from "@/utils/goToSection";
 import { useRef } from "react";
 import { Application } from "@splinetool/runtime";
+import clsx from "clsx";
 
 const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
@@ -21,10 +22,11 @@ const BannerHome = () => {
   const onLoad3D = (spline: Application) => {
     const obj = spline.findObjectByName("Macbook Pro M1 Max 14 Inch");
     splineRef.current = obj;
+    const scale = 0.26;
     if (splineRef.current) {
-      splineRef.current.scale.x = 0.25;
-      splineRef.current.scale.y = 0.25;
-      splineRef.current.scale.z = 0.25;
+      splineRef.current.scale.x = scale;
+      splineRef.current.scale.y = scale;
+      splineRef.current.scale.z = scale;
     }
   };
   return (
@@ -74,12 +76,16 @@ const BannerHome = () => {
           {t("home.banner.body.button")}
         </PrimaryButton>
       </div>
-      <div className="cursor-pointer transition-all h-96 hidden lg:block lg:w-[400px] lg:h-[400px] lg:justify-self-end object-cover xl:w-[600px] xl:h-[600px]">
-        <Spline
-          scene={scene3D}
-          style={{ width: "100%", height: "100%" }}
-          onLoad={onLoad3D}
-        />
+      <div
+        className={
+          "cursor-pointer transition-all h-96 hidden lg:block lg:justify-self-end object-cover overflow-hidden"
+        }
+        style={{
+          width: `100%`,
+          height: "100%",
+        }}
+      >
+        <Spline scene={scene3D} onLoad={onLoad3D} />
       </div>
     </div>
   );
