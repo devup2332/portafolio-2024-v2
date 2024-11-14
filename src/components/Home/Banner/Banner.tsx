@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import PrimaryButton from "../PrimeryButton/PrimeryButton";
-import { bannerImageUrl } from "@/data";
 import { bannerLinks } from "@/utils/bannerLinks";
+import Spline from "@splinetool/react-spline";
 import {
   Tooltip,
   TooltipContent,
@@ -9,9 +9,24 @@ import {
   TooltipTrigger,
 } from "@/components/UI/tooltip";
 import goToSection from "@/utils/goToSection";
+import { useRef } from "react";
+import { Application } from "@splinetool/runtime";
+
+const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
 const BannerHome = () => {
+  const splineRef = useRef<any>(null);
   const { t } = useTranslation();
+
+  const onLoad3D = (spline: Application) => {
+    const obj = spline.findObjectByName("Macbook Pro M1 Max 14 Inch");
+    splineRef.current = obj;
+    if (splineRef.current) {
+      splineRef.current.scale.x = 0.25;
+      splineRef.current.scale.y = 0.25;
+      splineRef.current.scale.z = 0.25;
+    }
+  };
   return (
     <div
       className="appearAnimation opacity-0 h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16 appearAnimation"
@@ -59,11 +74,13 @@ const BannerHome = () => {
           {t("home.banner.body.button")}
         </PrimaryButton>
       </div>
-      <img
-        src={bannerImageUrl}
-        alt="Profile Image"
-        className="cursor-pointer transition-all boxShadow hidden lg:block lg:w-[400px] lg:h-[400px] lg:justify-self-end object-cover rounded-full xl:w-[500px] xl:h-[500px]"
-      />
+      <div className="cursor-pointer transition-all h-96 hidden lg:block lg:w-[400px] lg:h-[400px] lg:justify-self-end object-cover xl:w-[600px] xl:h-[600px]">
+        <Spline
+          scene={scene3D}
+          style={{ width: "100%", height: "100%" }}
+          onLoad={onLoad3D}
+        />
+      </div>
     </div>
   );
 };

@@ -13,11 +13,14 @@ import {
 } from "@/components/UI/dropdown-menu";
 import goToSection, { Section } from "@/utils/goToSection";
 import { homeheaderLinks } from "@/utils/homeHeaderLinks";
+import clsx from "clsx";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type ILanguageProp = "en" | "es";
 
 const HomeHeader = () => {
+  const [links, setLinks] = useState(homeheaderLinks);
   const { t, i18n } = useTranslation();
 
   const handleChangeLanguage = (language?: ILanguageProp) => {
@@ -33,6 +36,50 @@ const HomeHeader = () => {
     if (!section) return;
     goToSection(section);
   };
+
+  const detectScroll = () => {
+    let hAcumulated = 0;
+    const range = document.documentElement.clientHeight * 0.4;
+    const newLinks = homeheaderLinks.map((item, index) => {
+      if (!item.id) return item;
+      const dimensions = document
+        .getElementById(item.id)
+        ?.getBoundingClientRect();
+      if (!dimensions) return item;
+      const visibleRange = {
+        start: !index ? 0 : hAcumulated - range,
+        end: !index
+          ? dimensions.height - range
+          : hAcumulated + dimensions.height - range,
+      };
+      hAcumulated += dimensions.height;
+
+      return { ...item, visibleRange };
+    });
+    newLinks.pop();
+    const scrollTop = window.scrollY;
+
+    const nL = newLinks.map((l) => {
+      if (
+        l.visibleRange &&
+        scrollTop >= l.visibleRange.start &&
+        scrollTop <= l.visibleRange.end
+      ) {
+        return { ...l, active: true };
+      } else {
+        return { ...l, active: false };
+      }
+    });
+    setLinks(nL);
+  };
+
+  useEffect(() => {
+    detectScroll();
+    window.addEventListener("scroll", detectScroll);
+    return () => {
+      window.removeEventListener("scroll", detectScroll);
+    };
+  }, []);
   return (
     <header
       className="fadeInAnimation opacity-0 font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10"
@@ -49,12 +96,15 @@ const HomeHeader = () => {
 
         <nav className="hidden xl:block">
           <ul>
-            {homeheaderLinks.map(
+            {links.map(
               (item, index) =>
                 !item.sub && (
                   <li
                     key={index}
-                    className="inline-block mx-4 lg:text-base font-normal cursor-pointer hover:text-primary-color transition-colors customUnderline"
+                    className={clsx(
+                      "inline-block mx-4 lg:text-base font-normal cursor-pointer hover:text-primary-color transition-colors customUnderline",
+                      item.active ? "text-primary-color underlineFull" : "",
+                    )}
                     onClick={() => handleGoToSection(item.id)}
                   >
                     {t(item.label)}
@@ -78,10 +128,15 @@ const HomeHeader = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuGroup>
-              {homeheaderLinks.map((item, index) => {
+              {links.map((item, index) => {
                 return item.sub ? (
                   <DropdownMenuSub key={index}>
-                    <DropdownMenuSubTrigger className="lg:text-base">
+                    <DropdownMenuSubTrigger
+                      className={clsx(
+                        "lg:text-base",
+                        item.active ? "text-primary-color" : "",
+                      )}
+                    >
                       {t(item.label)}
                     </DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
@@ -103,7 +158,10 @@ const HomeHeader = () => {
                 ) : (
                   <DropdownMenuItem
                     key={index}
-                    className="lg:text-base"
+                    className={clsx(
+                      "lg:text-base",
+                      item.active ? "text-primary-color" : "",
+                    )}
                     onClick={() => goToSection(item.id!)}
                   >
                     {t(item.label)}

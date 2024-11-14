@@ -1,6 +1,6 @@
 export type Section = "banner" | "experience" | "projects" | "contact";
 
-enum SectionEnum {
+export enum SectionEnum {
   banner = "banner",
   experience = "experience",
   projects = "projects",
