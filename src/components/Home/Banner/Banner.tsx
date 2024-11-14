@@ -77,7 +77,7 @@ const BannerHome = () => {
       </div>
       <div
         className={
-          "cursor-pointer transition-all h-96 hidden lg:block lg:justify-self-end object-cover overflow-hidden"
+          "cursor-pointer transition-all h-96 hidden lg:block lg:justify-self-end object-cover overflow-hidden translate-y-20"
         }
         style={{
           width: `100%`,
