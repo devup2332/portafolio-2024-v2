@@ -11,7 +11,6 @@ import {
 import goToSection from "@/utils/goToSection";
 import { useRef } from "react";
 import { Application } from "@splinetool/runtime";
-import clsx from "clsx";
 
 const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
