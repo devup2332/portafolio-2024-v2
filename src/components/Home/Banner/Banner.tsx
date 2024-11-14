@@ -80,8 +80,8 @@ const BannerHome = () => {
           "cursor-pointer transition-all h-96 hidden lg:block lg:justify-self-end object-cover overflow-hidden translate-y-20"
         }
         style={{
-          width: `100%`,
-          height: "100%",
+          width: "100%",
+          height: "700px",
         }}
       >
         <Spline scene={scene3D} onLoad={onLoad3D} />
