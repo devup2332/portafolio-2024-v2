@@ -1,16 +1,4 @@
-import { MenuIcon } from "@/components/Icons";
 import { Button } from "@/components/UI/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
-} from "@/components/UI/dropdown-menu";
 import goToSection, { Section } from "@/utils/goToSection";
 import { homeheaderLinks } from "@/utils/homeHeaderLinks";
 import clsx from "clsx";
@@ -94,7 +82,7 @@ const HomeHeader = () => {
           </span>
         </button>
 
-        <nav className="hidden xl:block">
+        <nav className="hidden lg:block">
           <ul>
             {links.map(
               (item, index) =>
@@ -116,61 +104,10 @@ const HomeHeader = () => {
 
         <Button
           variant="ghost"
-          className="hidden xl:block"
           onClick={() => handleChangeLanguage()}
         >
-          {i18n.language === "en" ? "ES" : "EN"}
+          {i18n.language === "en" ? "EN" : "ES"}
         </Button>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger className="outline-none xl:hidden">
-            <MenuIcon />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuGroup>
-              {links.map((item, index) => {
-                return item.sub ? (
-                  <DropdownMenuSub key={index}>
-                    <DropdownMenuSubTrigger
-                      className={clsx(
-                        "lg:text-base",
-                        item.active ? "text-primary-color" : "",
-                      )}
-                    >
-                      {t(item.label)}
-                    </DropdownMenuSubTrigger>
-                    <DropdownMenuPortal>
-                      <DropdownMenuSubContent>
-                        {item.children?.map((child, index) => (
-                          <DropdownMenuItem
-                            key={index}
-                            className="lg:text-base"
-                            onClick={() =>
-                              handleChangeLanguage(child.value as ILanguageProp)
-                            }
-                          >
-                            {t(child.label)}
-                          </DropdownMenuItem>
-                        ))}
-                      </DropdownMenuSubContent>
-                    </DropdownMenuPortal>
-                  </DropdownMenuSub>
-                ) : (
-                  <DropdownMenuItem
-                    key={index}
-                    className={clsx(
-                      "lg:text-base",
-                      item.active ? "text-primary-color" : "",
-                    )}
-                    onClick={() => goToSection(item.id!)}
-                  >
-                    {t(item.label)}
-                  </DropdownMenuItem>
-                );
-              })}
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
     </header>
   );

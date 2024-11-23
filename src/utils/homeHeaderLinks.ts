@@ -1,4 +1,6 @@
+import { SVGProps } from "react";
 import { Section } from "./goToSection";
+import { ICONS } from "./icons";
 
 interface IHomeHeaderLink {
   label: string;
@@ -6,6 +8,7 @@ interface IHomeHeaderLink {
   sub: boolean;
   id?: Section;
   active: boolean;
+  Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
   visibleRange?: {
     start: number;
     end: number;
@@ -19,12 +22,14 @@ export const homeheaderLinks: IHomeHeaderLink[] = [
   {
     label: "home.banner.menu.home",
     path: "/",
+    Icon: ICONS.home,
     sub: false,
     id: "banner",
     active: false,
   },
   {
     label: "home.banner.menu.experience",
+    Icon: ICONS.jobs,
     path: "/",
     sub: false,
     id: "experience",
@@ -33,6 +38,7 @@ export const homeheaderLinks: IHomeHeaderLink[] = [
 
   {
     label: "home.banner.menu.projects",
+    Icon: ICONS.projects,
     path: "/",
     sub: false,
     id: "projects",
@@ -40,6 +46,7 @@ export const homeheaderLinks: IHomeHeaderLink[] = [
   },
   {
     label: "home.banner.menu.contact",
+    Icon: ICONS.contact,
     path: "/",
     sub: false,
     id: "contact",
