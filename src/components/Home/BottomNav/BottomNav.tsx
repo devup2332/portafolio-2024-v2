@@ -55,11 +55,15 @@ const BottomNav = () => {
   }, []);
   return (
     <div className="text-white fixed bottom-5 py-4 px-6 w-11/12 rounded-md glassEffect flex justify-between max-w-md lg:hidden">
-      {links.map((l) => {
+      {links.map((l, index) => {
         const { Icon, active, id } = l;
         if (!Icon) return;
         return (
-          <div className="cursor-pointer" onClick={() => handleGoToSection(id)}>
+          <div
+            className="cursor-pointer"
+            key={index}
+            onClick={() => handleGoToSection(id)}
+          >
             <Icon
               className={clsx(
                 "w-6 h-6",

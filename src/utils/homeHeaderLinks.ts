@@ -46,7 +46,7 @@ export const homeheaderLinks: IHomeHeaderLink[] = [
   },
   {
     label: "home.banner.menu.contact",
-    Icon: ICONS.contact,
+    Icon: ICONS.email,
     path: "/",
     sub: false,
     id: "contact",
