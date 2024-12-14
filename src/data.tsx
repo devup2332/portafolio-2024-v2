@@ -89,18 +89,26 @@ export const projects = [
   },
   {
     stack: [
-      "React",
-      "TailwindCSS",
+      "Expo",
+      "Tailwind",
       "TypeScript",
-      "React Router",
-      "React i18next",
+      "Expo Router",
+      "Zustand",
+      "Neon DB",
+      "Clerk Auth",
     ],
-    name: "Pikkit",
+    name: "Uber Clone",
+    links: [
+      {
+        name: "Github",
+        url: "https://github.com/devup2332/uber-clone",
+      },
+    ],
     urlImage:
-      "https://cdn.dribbble.com/users/4355162/screenshots/15384741/media/cdda7348c23f0ea4e4f8c0ecfb79eeca.png",
+      "https://res.cloudinary.com/dder8kjda/image/upload/v1734137968/Screenshot_2024-12-13_19-58-50_yoilxy.png",
     descriptions: {
-      en: "A coffe app developed with React native and expo as a framework. It has differents screens like payment, home, details, etc.",
-      es: "Una aplicación de café desarrollada con React native y expo como framework. Tiene diferentes pantallas como pago, inicio, detalles, etc.",
+      en: "An application that emulate uber experience. It was developed with Expo, TailwindCSS for React Native, TypeScript, Expo Router and Zustand to manage the state.",
+      es: "Una aplicación que emula la experiencia de uber. Fue desarrollado con Expo, TailwindCSS para React Native, TypeScript, Expo Router y Zustand para gestionar el estado.",
     },
   },
   {

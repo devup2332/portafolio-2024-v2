@@ -22,8 +22,11 @@ const Projects = () => {
           return (
             <div
               key={index}
-              className="rounded-xl overflow-hidden relative group cursor-pointer transition-all h-56 md:h-80"
+              className="rounded-xl overflow-hidden relative group cursor-pointer transition-all"
               onClick={() => p.links && window.open(p.links[0]?.url, "_blank")}
+              style={{
+                aspectRatio: "16/12",
+              }}
             >
               <img
                 src={p.urlImage}

@@ -1,16 +1,17 @@
 import { useTranslation } from "react-i18next";
 import PrimaryButton from "../PrimeryButton/PrimeryButton";
 import { bannerLinks } from "@/utils/bannerLinks";
-import Spline from "@splinetool/react-spline";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/UI/tooltip";
+import { lazy } from "react";
 import goToSection from "@/utils/goToSection";
 import { useRef } from "react";
 import { Application } from "@splinetool/runtime";
+const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
@@ -84,7 +85,11 @@ const BannerHome = () => {
           height: "700px",
         }}
       >
-        <Spline scene={scene3D} onLoad={onLoad3D} />
+        <Spline
+          scene={scene3D}
+          onLoad={onLoad3D}
+          className="aspect-video w-full h-full"
+        />
       </div>
     </div>
   );
