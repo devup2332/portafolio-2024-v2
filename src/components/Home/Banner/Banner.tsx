@@ -78,7 +78,7 @@ const BannerHome = () => {
             {t("home.banner.body.role")}
           </span>
         </h2>
-        <p className="text-sm text-center lg:text-left lg:text-base">
+        <p className="font-normal text-sm text-center lg:text-left lg:text-base">
           {t("home.banner.body.description")}
         </p>
         <div className="flex gap-3 justify-center w-full lg:justify-start xl:gap-5">
