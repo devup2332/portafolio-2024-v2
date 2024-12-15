@@ -2,7 +2,6 @@ import { projects } from "@/data";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
-import ImageComponent from "../ImageComponent/ImageComponent";
 
 const Projects = () => {
   const { t, i18n } = useTranslation();
