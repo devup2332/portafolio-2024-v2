@@ -8,7 +8,7 @@ import { Toaster } from "@/components/UI/sonner";
 
 const Home = () => {
   return (
-    <div className="text-primary-text-color font-inter justify-center flex">
+    <div className="text-primary-text-color font-inter justify-center flex overflow-x-hidden">
       <HomeHeader />
       <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl pb-28">
         <BannerHome />

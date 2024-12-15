@@ -2,22 +2,31 @@ import { experienceHistory } from "@/data";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 import "./Experience.module.css";
-import { useRef } from "react";
-import clsx from "clsx";
-import useElementVisible from "@/hooks/useElementVisible";
+import { motion } from "motion/react";
 
 const ExperienceHome = () => {
   const { t, i18n } = useTranslation();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isVisible = useElementVisible(containerRef);
   return (
-    <div
-      className={clsx(
-        "pb-28 mt-2 container",
-        isVisible ? "appearAnimation opacity-0" : "opacity-0",
-      )}
+    <motion.div
+      className="pb-28 mt-2 container"
       id="experience"
-      ref={containerRef}
+      initial={{
+        translateX: "200px",
+        opacity: 0,
+      }}
+      whileInView={{
+        translateX: "0px",
+        opacity: 1,
+      }}
+      translate="yes"
+      transition={{
+        delay: 0.5,
+        easings: "easeInOut",
+        duration: 0.8,
+      }}
+      viewport={{
+        once: true,
+      }}
     >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.experience.title")}
@@ -86,7 +95,7 @@ const ExperienceHome = () => {
           })}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

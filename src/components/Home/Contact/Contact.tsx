@@ -8,10 +8,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactSchemaType } from "@/schemas/contactSchema";
 import { toast } from "sonner";
 import { sleep } from "@/utils/sleep";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
-import clsx from "clsx";
-import useElementVisible from "@/hooks/useElementVisible";
+import { motion } from "motion/react";
 
 interface InputType {
   label: string;
@@ -65,8 +64,6 @@ const ContactHome = () => {
     resolver: zodResolver(ContactSchema),
   });
   const [loading, setLoading] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isVisible = useElementVisible(containerRef);
 
   const onSubmit: SubmitHandler<FieldValues> = async () => {
     const random = Math.floor(Math.random() * 2000);
@@ -87,10 +84,24 @@ const ContactHome = () => {
   const onError = () => {};
 
   return (
-    <div
-      className={clsx(isVisible ? "appearAnimation opacity-0" : "opacity-0")}
+    <motion.div
       id="contact"
-      ref={containerRef}
+      initial={{
+        translateX: "200px",
+        opacity: 0,
+      }}
+      whileInView={{
+        translateX: "0px",
+        opacity: 1,
+      }}
+      transition={{
+        delay: 0.5,
+        duration: 0.5,
+      }}
+      viewport={{
+        once: true,
+        margin: "-200px",
+      }}
     >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.contact.title")}
@@ -145,7 +156,7 @@ const ContactHome = () => {
           {t("home.footer.name")}
         </span>
       </h2>
-    </div>
+    </motion.div>
   );
 };
 

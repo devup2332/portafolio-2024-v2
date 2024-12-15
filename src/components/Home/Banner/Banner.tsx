@@ -7,16 +7,20 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/UI/tooltip";
-import { lazy } from "react";
 import goToSection from "@/utils/goToSection";
-import { useRef } from "react";
+import { lazy, useEffect, useRef, useState } from "react";
 import { Application } from "@splinetool/runtime";
+import { motion } from "motion/react";
+import { sleep } from "@/utils/sleep";
+import { LoaderIcon } from "@/components/Icons";
+
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
 const BannerHome = () => {
   const splineRef = useRef<any>(null);
+  const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
 
   const onLoad3D = (spline: Application) => {
@@ -29,13 +33,37 @@ const BannerHome = () => {
       splineRef.current.scale.z = scale;
     }
   };
+
+  const load3D = async () => {
+    await fetch(scene3D).then((res) => res.blob());
+    await sleep(2000);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    load3D();
+  }, []);
   return (
-    <div
-      className="appearAnimation opacity-0 h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16 appearAnimation"
-      style={{
-        animationDelay: "1s",
-      }}
+    <motion.div
+      className="h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16"
       id="banner"
+      initial={{
+        translateX: "200px",
+        opacity: 0,
+      }}
+      whileInView={{
+        translateX: "0px",
+        opacity: 1,
+      }}
+      translate="yes"
+      transition={{
+        delay: 1.5,
+        easings: "easeInOut",
+        duration: 0.8,
+      }}
+      viewport={{
+        once: true,
+      }}
     >
       <div className="grid gap-4 lg:gap-6">
         <h1 className="font-bold text-4xl w-full text-center lg:text-left lg:text-6xl xl:text-8xl">
@@ -76,22 +104,30 @@ const BannerHome = () => {
           {t("home.banner.body.button")}
         </PrimaryButton>
       </div>
-      <div
-        className={
-          "cursor-pointer transition-all h-96 hidden lg:block lg:justify-self-end object-cover overflow-hidden translate-y-20"
-        }
-        style={{
-          width: "100%",
-          height: "700px",
-        }}
-      >
-        <Spline
-          scene={scene3D}
-          onLoad={onLoad3D}
-          className="aspect-video w-full h-full"
-        />
-      </div>
-    </div>
+      {loading ? (
+        <LoaderIcon className="animate-spin stroke-current text-white justify-self-center self-center" />
+      ) : (
+        <div
+          className={
+            "cursor-pointer  transition-all h-96 hidden lg:grid lg:justify-self-end object-cover overflow-hidden translate-y-20 items-center justify-center"
+          }
+          style={{
+            width: "100%",
+            height: "700px",
+          }}
+        >
+          <Spline
+            ref={splineRef}
+            onLoad={onLoad3D}
+            scene={scene3D}
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </div>
+      )}
+    </motion.div>
   );
 };
 

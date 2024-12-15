@@ -4,6 +4,7 @@ import { homeheaderLinks } from "@/utils/homeHeaderLinks";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 
 type ILanguageProp = "en" | "es";
 
@@ -69,12 +70,27 @@ const HomeHeader = () => {
     };
   }, []);
   return (
-    <header
-      className="fadeInAnimation opacity-0 font-bold text-2xl py-4 fixed w-full top-0 left-0 lg:py-8 bg-primary-bg z-10"
+    <motion.header
+      className="font-bold text-2xl fixed w-full top-0 left-0 lg:py-8 z-10 headerGlass bg-primary-bg lg:bg-transparent"
       id="homeheader"
       style={{ animationDelay: "0.5" }}
+      initial={{
+        translateY: "-200px",
+        opacity: 0,
+      }}
+      animate={{
+        translateY: "0px",
+        opacity: 1,
+      }}
+      transition={{
+        delay: 0.5,
+        duration: 0.8,
+      }}
+      viewport={{
+        once: true,
+      }}
     >
-      <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center">
+      <div className="w-full m-auto max-w-md lg:w-10/12 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center py-4 px-12 rounded-2xl">
         <button>
           <span>{t("home.banner.logo.firstName")} </span>
           <span className="text-primary-color textShadow">
@@ -102,14 +118,11 @@ const HomeHeader = () => {
           </ul>
         </nav>
 
-        <Button
-          variant="ghost"
-          onClick={() => handleChangeLanguage()}
-        >
+        <Button variant="ghost" onClick={() => handleChangeLanguage()}>
           {i18n.language === "en" ? "EN" : "ES"}
         </Button>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
