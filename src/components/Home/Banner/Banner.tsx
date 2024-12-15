@@ -8,11 +8,10 @@ import {
   TooltipTrigger,
 } from "@/components/UI/tooltip";
 import goToSection from "@/utils/goToSection";
-import { lazy, useEffect, useRef, useState } from "react";
+import { lazy, useEffect, useRef } from "react";
 import { Application } from "@splinetool/runtime";
 import { motion } from "motion/react";
 import { sleep } from "@/utils/sleep";
-import { LoaderIcon } from "@/components/Icons";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
@@ -20,7 +19,6 @@ const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
 const BannerHome = () => {
   const splineRef = useRef<any>(null);
-  const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
 
   const onLoad3D = (spline: Application) => {
@@ -37,7 +35,6 @@ const BannerHome = () => {
   const load3D = async () => {
     await fetch(scene3D).then((res) => res.blob());
     await sleep(2000);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -104,29 +101,25 @@ const BannerHome = () => {
           {t("home.banner.body.button")}
         </PrimaryButton>
       </div>
-      {loading ? (
-        <LoaderIcon className="animate-spin stroke-current text-white justify-self-center self-center" />
-      ) : (
-        <div
-          className={
-            "cursor-pointer  transition-all h-96 hidden lg:grid lg:justify-self-end object-cover overflow-hidden translate-y-20 items-center justify-center"
-          }
+      <div
+        className={
+          "cursor-pointer  transition-all h-96 hidden lg:grid lg:justify-self-end object-cover overflow-hidden translate-y-20 items-center justify-center"
+        }
+        style={{
+          width: "100%",
+          height: "700px",
+        }}
+      >
+        <Spline
+          ref={splineRef}
+          onLoad={onLoad3D}
+          scene={scene3D}
           style={{
             width: "100%",
-            height: "700px",
+            height: "100%",
           }}
-        >
-          <Spline
-            ref={splineRef}
-            onLoad={onLoad3D}
-            scene={scene3D}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </div>
-      )}
+        />
+      </div>
     </motion.div>
   );
 };
