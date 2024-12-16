@@ -8,19 +8,19 @@ import {
   TooltipTrigger,
 } from "@/components/UI/tooltip";
 import goToSection from "@/utils/goToSection";
-import { lazy, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Spline from "@splinetool/react-spline";
 import { Application } from "@splinetool/runtime";
 import { motion } from "motion/react";
 import { sleep } from "@/utils/sleep";
 import { LoaderIcon } from "@/components/Icons";
-
-const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
 
 const BannerHome = () => {
   const splineRef = useRef<any>(null);
   const [loading, setLoading] = useState(true);
+
   const { t } = useTranslation();
 
   const onLoad3D = (spline: Application) => {
@@ -57,7 +57,7 @@ const BannerHome = () => {
       }}
       translate="yes"
       transition={{
-        delay: 1.5,
+        delay: 0.8,
         easings: "easeInOut",
         duration: 0.8,
       }}
@@ -104,18 +104,14 @@ const BannerHome = () => {
           {t("home.banner.body.button")}
         </PrimaryButton>
       </div>
-      {loading ? (
-        <LoaderIcon className="animate-spin stroke-current text-white justify-self-center self-center" />
-      ) : (
-        <div
-          className={
-            "cursor-pointer  transition-all h-96 hidden lg:grid lg:justify-self-end object-cover overflow-hidden translate-y-20 items-center justify-center"
-          }
-          style={{
-            width: "100%",
-            height: "700px",
-          }}
-        >
+      <div
+        className={
+          "cursor-pointer transition-all hidden h-full place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-full xl:h-[700px] translate-y-20"
+        }
+      >
+        {loading ? (
+          <LoaderIcon className="animate-spin" />
+        ) : (
           <Spline
             ref={splineRef}
             onLoad={onLoad3D}
@@ -125,8 +121,8 @@ const BannerHome = () => {
               height: "100%",
             }}
           />
-        </div>
-      )}
+        )}
+      </div>
     </motion.div>
   );
 };
