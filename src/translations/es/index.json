@@ -55,6 +55,10 @@
         "success": {
           "title": "Mensaje enviado satisfactoriamente",
           "body": "Gracias por contactarme, te responderé lo más pronto posible"
+        },
+        "error": {
+          "title": "Ocurrio un error",
+          "body": "Hubo un error al enviar tu mensaje, por favor intenta nuevamente mas tarde."
         }
       }
     },

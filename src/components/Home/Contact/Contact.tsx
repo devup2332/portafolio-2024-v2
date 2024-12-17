@@ -7,11 +7,10 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactSchemaType } from "@/schemas/contactSchema";
 import { toast } from "sonner";
-import { sleep } from "@/utils/sleep";
 import { useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
 import { motion } from "motion/react";
-import { sendEmail } from "@/utils/sendEmail";
+import { sendMail } from "@/utils/sendEmail";
 
 interface InputType {
   label: string;
@@ -69,10 +68,7 @@ const ContactHome = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (message) => {
     try {
       setLoading(true);
-      const data = await sendEmail(message as any);
-      console.log({ data });
-      const random = Math.floor(Math.random() * 2000);
-      await sleep(random);
+      await sendMail(message as any);
       setLoading(false);
       reset();
       toast.custom(() => (
@@ -83,9 +79,19 @@ const ContactHome = () => {
           <p className="text-sm">{t("home.contact.toast.success.body")}</p>
         </div>
       ));
-    } catch (err) {
+    } catch (err: any) {
       setLoading(false);
-      console.log({ err });
+      reset();
+      toast.custom(() => (
+        <div className="px-5 py-3 rounded-md bg-primary-bg border-border border-2">
+          <h1 className="text-base font-bold text-red-500">
+            {t("home.contact.toast.error.title")}
+          </h1>
+          <p className="text-sm">
+            {err.message || t("home.contact.toast.error.body")}
+          </p>
+        </div>
+      ));
     }
   };
 
@@ -118,6 +124,7 @@ const ContactHome = () => {
         action=""
         className="grid gap-5 mt-14 lg:grid-cols-2 max-w-2xl m-auto lg:gap-10"
         onSubmit={handleSubmit(onSubmit, onError)}
+        autoComplete="off"
       >
         {inputs.map((input, index) =>
           input.type !== "textarea" ? (
@@ -129,6 +136,8 @@ const ContactHome = () => {
                 type={input.type}
                 id={input.name}
                 placeholder={t(input.placeholder)}
+                autoComplete="off"
+                autoCorrect="off"
                 className="h-12"
                 required={input.required}
                 {...register(input.name, { required: input.required })}
@@ -151,6 +160,7 @@ const ContactHome = () => {
         <PrimaryButton
           type="submit"
           className="w-full lg:w-56 lg:col-start-1 lg:col-end-3 lg:justify-self-center gap-2"
+          disabled={loading}
         >
           {loading && <LoaderIcon className="animate-spin" />}
           {t("home.contact.form.button")}

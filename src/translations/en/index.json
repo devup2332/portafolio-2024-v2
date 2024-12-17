@@ -60,6 +60,10 @@
         "success": {
           "title": "Message was send successfully",
           "body": "Thanks for contacting me, I will get back to you as soon as possible"
+        },
+        "error": {
+          "title": "An error occurred",
+          "body": "There was an error sending the message, please try again later"
         }
       }
     },

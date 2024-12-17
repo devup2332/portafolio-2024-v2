@@ -10,10 +10,10 @@ export interface IContactSchema {
 
 export const ContactSchema: z.ZodType<IContactSchema> = z.object({
   email: z.string().email(),
-  firstName: z.string(),
-  lastName: z.string(),
-  phone: z.string(),
-  message: z.string(),
+  firstName: z.string().min(1),
+  lastName: z.string().min(1),
+  phone: z.string().min(1),
+  message: z.string().min(1),
 });
 
 export type ContactSchemaType = z.infer<typeof ContactSchema>;
