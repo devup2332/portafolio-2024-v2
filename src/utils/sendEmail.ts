@@ -6,6 +6,7 @@ export const sendMail = async (message: IContactSchema) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
     },
     body: JSON.stringify(message),
   });

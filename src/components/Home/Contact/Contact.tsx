@@ -114,7 +114,6 @@ const ContactHome = () => {
       }}
       viewport={{
         once: true,
-        margin: "-200px",
       }}
     >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
