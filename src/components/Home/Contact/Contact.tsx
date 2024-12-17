@@ -11,6 +11,7 @@ import { sleep } from "@/utils/sleep";
 import { useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
 import { motion } from "motion/react";
+import { sendEmail } from "@/utils/sendEmail";
 
 interface InputType {
   label: string;
@@ -65,20 +66,27 @@ const ContactHome = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<FieldValues> = async () => {
-    const random = Math.floor(Math.random() * 2000);
-    setLoading(true);
-    await sleep(random);
-    setLoading(false);
-    reset();
-    toast.custom(() => (
-      <div className="px-5 py-3 rounded-md bg-primary-bg border-border border-2">
-        <h1 className="text-base font-bold text-primary-color">
-          {t("home.contact.toast.success.title")}
-        </h1>
-        <p className="text-sm">{t("home.contact.toast.success.body")}</p>
-      </div>
-    ));
+  const onSubmit: SubmitHandler<FieldValues> = async (message) => {
+    try {
+      setLoading(true);
+      const data = await sendEmail(message as any);
+      console.log({ data });
+      const random = Math.floor(Math.random() * 2000);
+      await sleep(random);
+      setLoading(false);
+      reset();
+      toast.custom(() => (
+        <div className="px-5 py-3 rounded-md bg-primary-bg border-border border-2">
+          <h1 className="text-base font-bold text-primary-color">
+            {t("home.contact.toast.success.title")}
+          </h1>
+          <p className="text-sm">{t("home.contact.toast.success.body")}</p>
+        </div>
+      ));
+    } catch (err) {
+      setLoading(false);
+      console.log({ err });
+    }
   };
 
   const onError = () => {};

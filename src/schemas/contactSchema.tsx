@@ -1,6 +1,14 @@
 import { z } from "zod";
 
-export const ContactSchema = z.object({
+export interface IContactSchema {
+  email: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  message: string;
+}
+
+export const ContactSchema: z.ZodType<IContactSchema> = z.object({
   email: z.string().email(),
   firstName: z.string(),
   lastName: z.string(),
