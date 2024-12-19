@@ -9,27 +9,7 @@ const Projects = () => {
 
   useEffect(() => {}, []);
   return (
-    <motion.div
-      id="projects"
-      ref={containerRef}
-      initial={{
-        translateX: "-200px",
-        opacity: 0,
-      }}
-      whileInView={{
-        translateX: "0px",
-        opacity: 1,
-      }}
-      translate="yes"
-      transition={{
-        delay: 0.5,
-        easings: "easeInOut",
-        duration: 0.8,
-      }}
-      viewport={{
-        once: true,
-      }}
-    >
+    <div id="projects" ref={containerRef}>
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.projects.title")}
       </h1>
@@ -37,19 +17,31 @@ const Projects = () => {
       <div className="mt-24 grid lg:grid-cols-2 xl:grid-cols-3 gap-12 pb-28">
         {projects.map((p, index) => {
           return (
-            <div
+            <motion.div
               key={index}
-              className="rounded-xl overflow-hidden relative group cursor-pointer transition-all grid"
+              className="rounded-xl overflow-hidden relative group cursor-pointer grid"
               onClick={() => p.links && window.open(p.links[0]?.url, "_blank")}
-              style={{
-                aspectRatio: "16/12",
-                contentVisibility: "auto",
+              initial={{
+                translateY: "150px",
+                opacity: 0,
+              }}
+              whileInView={{
+                translateY: "0px",
+                opacity: 1,
+              }}
+              transition={{
+                delay: (index + 1) * 0.3,
+                duration: 0.5,
+                ease: "linear",
+              }}
+              viewport={{
+                once: true,
               }}
             >
               <img
                 src={p.urlImage}
                 alt={p.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover block"
                 style={{
                   aspectRatio: "16/12",
                 }}
@@ -72,11 +64,11 @@ const Projects = () => {
                   })}
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

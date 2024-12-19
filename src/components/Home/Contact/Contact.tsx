@@ -111,6 +111,7 @@ const ContactHome = () => {
       transition={{
         delay: 0.5,
         duration: 0.5,
+        ease: "easeOut",
       }}
       viewport={{
         once: true,
@@ -150,6 +151,7 @@ const ContactHome = () => {
               <Textarea
                 id={input.name}
                 placeholder={t(input.placeholder)}
+                className="resize-none"
                 rows={10}
                 {...register(input.name)}
               ></Textarea>
