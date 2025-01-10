@@ -15,5 +15,5 @@ html.dark {
   --text-color-1: var(--dark-text-color-1);
   --text-color-2: var(--dark-text-color-2);
   --primary-color: var(--dark-primary-color);
+  color-scheme: dark;
 }
-

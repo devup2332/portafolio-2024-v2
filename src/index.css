@@ -136,6 +136,11 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-backdrop-filter: blur(7.4px);
 }
 
+.customScroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-color-2) var(--primary-bg);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
