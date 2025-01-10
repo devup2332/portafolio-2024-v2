@@ -110,7 +110,7 @@ const BannerHome = () => {
         }
       >
         {loading ? (
-          <LoaderIcon className="animate-spin" />
+          <LoaderIcon className="animate-spin w-6 h-6 text-primary-color stroke-current" />
         ) : (
           <Spline
             ref={splineRef}

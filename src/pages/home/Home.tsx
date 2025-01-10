@@ -4,9 +4,31 @@ import ContactHome from "@/components/Home/Contact/Contact";
 import ExperienceHome from "@/components/Home/Experience/Experience";
 import HomeHeader from "@/components/Home/Header/HomeHeader";
 import Projects from "@/components/Home/Projects/Projects";
+import { LoaderIcon } from "@/components/Icons";
 import { Toaster } from "@/components/UI/sonner";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+
+  const fakeLoading = () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    fakeLoading();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="h-screen grid place-items-center">
+        <LoaderIcon className="animate-spin text-primary-color stroke-current w-8 h-8" />
+      </div>
+    );
+  }
+
   return (
     <div className="text-primary-text-color font-inter justify-center flex overflow-x-hidden">
       <HomeHeader />

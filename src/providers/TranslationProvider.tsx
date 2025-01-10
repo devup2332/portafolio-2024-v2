@@ -19,8 +19,8 @@ i18n.init({
 interface I18ProviderProps {
   children: React.ReactNode;
 }
-const I18Provider = ({ children }: I18ProviderProps) => {
+const TranslationProvider = ({ children }: I18ProviderProps) => {
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 };
 
-export default I18Provider;
+export default TranslationProvider;

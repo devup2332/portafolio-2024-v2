@@ -4,14 +4,14 @@ import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import { router } from "@/router.tsx";
 import { ThemeProvider } from "@/providers/ThemeProvider.tsx";
-import I18Provider from "@/providers/I18Provider";
+import TranslationProvider from "@/providers/TranslationProvider";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <I18Provider>
+    <TranslationProvider>
       <ThemeProvider>
         <RouterProvider router={router} />
       </ThemeProvider>
-    </I18Provider>
+    </TranslationProvider>
   </StrictMode>,
 );
