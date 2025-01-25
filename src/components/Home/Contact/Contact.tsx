@@ -163,7 +163,7 @@ const ContactHome = () => {
           className="w-full lg:w-56 lg:col-start-1 lg:col-end-3 lg:justify-self-center gap-2"
           disabled={loading}
         >
-          {loading && <LoaderIcon className="animate-spin" />}
+          {loading && <LoaderIcon className="animate-spin h-6 w-6" />}
           {t("home.contact.form.button")}
         </PrimaryButton>
       </form>

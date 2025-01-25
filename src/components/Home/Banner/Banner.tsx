@@ -8,41 +8,11 @@ import {
   TooltipTrigger,
 } from "@/components/UI/tooltip";
 import goToSection from "@/utils/goToSection";
-import { useEffect, useRef, useState } from "react";
-import Spline from "@splinetool/react-spline";
-import { Application } from "@splinetool/runtime";
 import { motion } from "motion/react";
-import { sleep } from "@/utils/sleep";
-import { LoaderIcon } from "@/components/Icons";
-
-const scene3D = "https://prod.spline.design/GYXwEQLmwkLkmep0/scene.splinecode";
+import BannerVector from "@/components/Vectors/BannerVector";
 
 const BannerHome = () => {
-  const splineRef = useRef<any>(null);
-  const [loading, setLoading] = useState(true);
-
   const { t } = useTranslation();
-
-  const onLoad3D = (spline: Application) => {
-    const obj = spline.findObjectByName("Macbook Pro M1 Max 14 Inch");
-    splineRef.current = obj;
-    const scale = 0.26;
-    if (splineRef.current) {
-      splineRef.current.scale.x = scale;
-      splineRef.current.scale.y = scale;
-      splineRef.current.scale.z = scale;
-    }
-  };
-
-  const load3D = async () => {
-    await fetch(scene3D).then((res) => res.blob());
-    await sleep(2000);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    load3D();
-  }, []);
   return (
     <motion.div
       className="h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16"
@@ -106,22 +76,10 @@ const BannerHome = () => {
       </div>
       <div
         className={
-          "cursor-pointer transition-all hidden h-full place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-full xl:h-[700px] translate-y-20"
+          "cursor-pointer transition-all hidden h-full place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-full xl:h-[700px]"
         }
       >
-        {loading ? (
-          <LoaderIcon className="animate-spin w-6 h-6 text-primary-color stroke-current" />
-        ) : (
-          <Spline
-            ref={splineRef}
-            onLoad={onLoad3D}
-            scene={scene3D}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        )}
+        <BannerVector className="w-full h-full" />
       </div>
     </motion.div>
   );

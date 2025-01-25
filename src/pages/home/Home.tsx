@@ -11,10 +11,14 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const [loading, setLoading] = useState(true);
 
+  const generateRandomNumber = () => {
+    return Math.floor(Math.random() * 2);
+  };
+
   const fakeLoading = () => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, generateRandomNumber());
   };
 
   useEffect(() => {
