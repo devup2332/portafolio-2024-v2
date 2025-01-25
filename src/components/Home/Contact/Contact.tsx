@@ -11,6 +11,7 @@ import { useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
 import { motion } from "motion/react";
 import { sendMail } from "@/utils/sendEmail";
+import goToSection from "@/utils/goToSection";
 
 interface InputType {
   label: string;
@@ -171,9 +172,12 @@ const ContactHome = () => {
         <span className="text-secondary-text-color">
           {t("home.footer.text")}
         </span>{" "}
-        <span className="font-bold cursor-pointer hover:text-primary-color transition-colors">
+        <button
+          onClick={() => goToSection("banner")}
+          className="font-bold cursor-pointer hover:text-primary-color transition-colors outline-none"
+        >
           {t("home.footer.name")}
-        </span>
+        </button>
       </h2>
     </motion.div>
   );

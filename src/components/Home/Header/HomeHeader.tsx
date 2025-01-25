@@ -91,7 +91,7 @@ const HomeHeader = () => {
       }}
     >
       <div className="w-full m-auto max-w-md lg:w-10/12 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center py-4 px-12 rounded-2xl">
-        <button>
+        <button onClick={() => goToSection("banner")}>
           <span>{t("home.banner.logo.firstName")} </span>
           <span className="text-primary-color textShadow">
             {t("home.banner.logo.lastName")}
