@@ -9,7 +9,26 @@ const Projects = () => {
 
   useEffect(() => {}, []);
   return (
-    <div id="projects" ref={containerRef}>
+    <motion.div
+      id="projects"
+      ref={containerRef}
+      initial={{
+        translateX: "200px",
+        opacity: 0,
+      }}
+      whileInView={{
+        translateX: "0px",
+        opacity: 1,
+      }}
+      transition={{
+        delay: 0.5,
+        easings: "easeInOut",
+        duration: 0.8,
+      }}
+      viewport={{
+        once: true,
+      }}
+    >
       <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
         {t("home.projects.title")}
       </h1>
@@ -68,7 +87,7 @@ const Projects = () => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

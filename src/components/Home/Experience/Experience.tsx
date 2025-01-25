@@ -11,14 +11,13 @@ const ExperienceHome = () => {
       className="pb-28 mt-2 container"
       id="experience"
       initial={{
-        translateX: "200px",
+        translateX: "-200px",
         opacity: 0,
       }}
       whileInView={{
         translateX: "0px",
         opacity: 1,
       }}
-      translate="yes"
       transition={{
         delay: 0.5,
         easings: "easeInOut",
