@@ -76,10 +76,10 @@ const BannerHome = () => {
       </div>
       <div
         className={
-          "cursor-pointer transition-all hidden h-full place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-full xl:h-[700px]"
+          "cursor-pointer transition-all hidden place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-full h-fit"
         }
       >
-        <BannerVector className="w-full h-full" />
+        <BannerVector className="w-full h-full text-primary-color fill-current" />
       </div>
     </motion.div>
   );

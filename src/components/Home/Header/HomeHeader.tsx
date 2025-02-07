@@ -5,11 +5,15 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import MoonIcon from "@/components/Icons/MoonIcon";
+import SunIcon from "@/components/Icons/SunIcon";
+import { useStore } from "@/store";
 
 type ILanguageProp = "en" | "es";
 
 const HomeHeader = () => {
   const [links, setLinks] = useState(homeheaderLinks);
+  const { theme, switchTheme } = useStore((state) => state);
   const { t, i18n } = useTranslation();
 
   const handleChangeLanguage = (language?: ILanguageProp) => {
@@ -118,9 +122,21 @@ const HomeHeader = () => {
           </ul>
         </nav>
 
-        <Button variant="ghost" onClick={() => handleChangeLanguage()}>
-          {i18n.language === "en" ? "EN" : "ES"}
-        </Button>
+        <div className="flex gap-4">
+          <Button
+            variant="ghost"
+            className="bg-none"
+            onClick={() => handleChangeLanguage()}
+          >
+            {i18n.language === "en" ? "EN" : "ES"}
+          </Button>
+          <Button
+            variant="ghost"
+            onClick={() => switchTheme(theme === "dark" ? "light" : "dark")}
+          >
+            {theme === "dark" ? <MoonIcon className="w-5 h-5" /> : <SunIcon />}
+          </Button>
+        </div>
       </div>
     </motion.header>
   );

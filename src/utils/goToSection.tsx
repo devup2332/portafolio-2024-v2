@@ -1,5 +1,3 @@
-export type Section = "banner" | "experience" | "projects" | "contact";
-
 export enum SectionEnum {
   banner = "banner",
   experience = "experience",
@@ -7,6 +5,7 @@ export enum SectionEnum {
   contact = "contact",
 }
 
+export type Section = `${SectionEnum}`;
 const goToSection = (id: Section) => {
   let topToScroll = 0;
   const sectionsIds = Object.values(SectionEnum);
