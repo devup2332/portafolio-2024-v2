@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import PrimaryButton from "../PrimeryButton/PrimeryButton";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import { bannerLinks } from "@/utils/bannerLinks";
 import {
   Tooltip,

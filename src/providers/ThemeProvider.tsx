@@ -1,15 +1,25 @@
 import { useEffect } from "react";
-import { useStore } from "@/store";
+import { THEME_KEY, useStore } from "@/store";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
 }
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const theme = useStore((state) => state.theme);
+  const { theme, switchTheme } = useStore((state) => state);
+  console.log({ theme1: theme });
 
   useEffect(() => {
+    const localTheme = localStorage.getItem(THEME_KEY);
+
     const html = document.querySelector("html");
-    html?.classList.add(theme);
+    if (localTheme) {
+      switchTheme(localTheme as "dark" | "light");
+
+      html?.classList.add(localTheme);
+    } else {
+      switchTheme("dark");
+      html?.classList.add("dark");
+    }
   }, [theme]);
 
   return <>{children}</>;

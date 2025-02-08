@@ -3,11 +3,13 @@
   --dark-text-color-1: #ffffff;
   --dark-text-color-2: #505050;
   --dark-primary-color: #0aab6b;
+  --dark-glass-color-bg: 56, 56, 56;
 
-  --light-primary-bg: #ffffff;
+  --light-primary-bg: #f0f5f3;
   --light-text-color-1: #000000;
   --light-text-color-2: #505050;
   --light-primary-color: #0aab6b;
+  --light-glass-color-bg: 255, 255, 255;
 }
 
 html.dark {
@@ -15,5 +17,14 @@ html.dark {
   --text-color-1: var(--dark-text-color-1);
   --text-color-2: var(--dark-text-color-2);
   --primary-color: var(--dark-primary-color);
+  --glass-color-bg: var(--dark-glass-color-bg);
   color-scheme: dark;
+}
+html.light {
+  --primary-bg: var(--light-primary-bg);
+  --text-color-1: var(--light-text-color-1);
+  --text-color-2: var(--light-text-color-2);
+  --primary-color: var(--light-primary-color);
+  --glass-color-bg: var(--light-glass-color-bg);
+  color-scheme: light;
 }

@@ -65,7 +65,7 @@ const Projects = () => {
                   aspectRatio: "16/12",
                 }}
               />
-              <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10">
+              <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10 text-white">
                 <h2 className="font-bold">{p.name}</h2>
                 <p className="text-sm">
                   {p.descriptions[i18n.language as "en" | "es"]}

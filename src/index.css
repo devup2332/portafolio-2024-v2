@@ -67,20 +67,14 @@
   }
 }
 
+/* Global Effects */
+
 body {
   background-color: var(--primary-bg);
 }
 
 button {
   outline: none;
-}
-
-.boxShadow:hover {
-  box-shadow: 0px 0px 10px var(--primary-color);
-}
-
-.textShadow {
-  text-shadow: 0px 0px 10px var(--primary-color);
 }
 
 input[type="number"] {
@@ -95,6 +89,15 @@ input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
 }
+.boxShadow:hover {
+  box-shadow: 0px 0px 10px var(--primary-color);
+}
+
+.textShadow {
+  text-shadow: 0px 0px 10px var(--primary-color);
+}
+
+/* Underlines for header */
 
 .customUnderline {
   padding: 0px 0px 5px 0px;
@@ -132,18 +135,12 @@ input[type="number"]::-webkit-outer-spin-button {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
-.glassEffect {
-  background: rgba(56, 56, 56, 0.5);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(7.4px);
-  -webkit-backdrop-filter: blur(7.4px);
-}
-
 .customScroll {
   scrollbar-width: thin;
   scrollbar-color: var(--text-color-2) var(--primary-bg);
 }
+
+/* Animations */
 
 @keyframes fadeIn {
   from {
@@ -167,14 +164,19 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
+/* GlassEffects */
 @media (min-width: 1024px) {
-  .headerGlass {
-    div {
-      background: rgba(56, 56, 56, 0.5);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(7.4px);
-      -webkit-backdrop-filter: blur(7.4px);
-    }
+  #homeheader {
+    background: rgba(var(--glass-color-bg), 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.4px);
   }
+}
+
+.bottomNavGlassEffect {
+  background: rgba(var(--glass-color-bg), 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }

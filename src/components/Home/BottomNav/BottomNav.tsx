@@ -54,7 +54,7 @@ const BottomNav = () => {
     };
   }, []);
   return (
-    <div className="text-white fixed bottom-5 py-4 px-6 w-11/12 rounded-md glassEffect flex justify-between max-w-md lg:hidden">
+    <div className="text-white fixed bottom-5 py-4 px-6 w-11/12 rounded-md flex justify-between max-w-md lg:hidden bottomNavGlassEffect">
       {links.map((l, index) => {
         const { Icon, active, id } = l;
         if (!Icon) return;
@@ -67,7 +67,7 @@ const BottomNav = () => {
             <Icon
               className={clsx(
                 "w-6 h-6",
-                active ? "text-primary-color" : "text-white",
+                active ? "text-primary-color" : "text-primary-text-color",
               )}
             />
           </div>

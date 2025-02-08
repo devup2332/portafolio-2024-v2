@@ -75,8 +75,7 @@ const HomeHeader = () => {
   }, []);
   return (
     <motion.header
-      className="font-bold text-2xl fixed w-full top-0 left-0 lg:py-8 z-10 headerGlass bg-primary-bg lg:bg-transparent"
-      id="homeheader"
+      className="font-bold text-2xl fixed w-full top-0 left-0 lg:py-8 z-10  bg-primary-bg lg:bg-transparent text-primary-text-color"
       style={{ animationDelay: "0.5" }}
       initial={{
         translateY: "-200px",
@@ -94,10 +93,13 @@ const HomeHeader = () => {
         once: true,
       }}
     >
-      <div className="w-full m-auto max-w-md lg:w-10/12 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center py-4 px-12 rounded-2xl">
+      <div
+        className="w-full m-auto max-w-md glassEffect lg:w-10/12 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center py-4 px-12 rounded-2xl"
+        id="homeheader"
+      >
         <button onClick={() => goToSection("banner")}>
           <span>{t("home.banner.logo.firstName")} </span>
-          <span className="text-primary-color textShadow">
+          <span className="text-primary-color font-extrabold">
             {t("home.banner.logo.lastName")}
           </span>
         </button>
@@ -111,18 +113,18 @@ const HomeHeader = () => {
                     key={index}
                     className={clsx(
                       "inline-block mx-4 lg:text-base font-normal cursor-pointer hover:text-primary-color transition-colors customUnderline",
-                      item.active ? "text-primary-color underlineFull" : "",
+                      item.active ? "text-primary-color underlineFull" : ""
                     )}
                     onClick={() => handleGoToSection(item.id)}
                   >
                     {t(item.label)}
                   </li>
-                ),
+                )
             )}
           </ul>
         </nav>
 
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4">
           <Button
             variant="ghost"
             className="bg-none"
@@ -132,9 +134,14 @@ const HomeHeader = () => {
           </Button>
           <Button
             variant="ghost"
+            className="bg-none"
             onClick={() => switchTheme(theme === "dark" ? "light" : "dark")}
           >
-            {theme === "dark" ? <MoonIcon className="w-5 h-5" /> : <SunIcon />}
+            {theme === "dark" ? (
+              <SunIcon className="w-6 h-6" />
+            ) : (
+              <MoonIcon className="w-6 h-6" />
+            )}
           </Button>
         </div>
       </div>
