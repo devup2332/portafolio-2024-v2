@@ -6,7 +6,6 @@ interface ThemeProviderProps {
 }
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const { theme, switchTheme } = useStore((state) => state);
-  console.log({ theme1: theme });
 
   useEffect(() => {
     const localTheme = localStorage.getItem(THEME_KEY);
