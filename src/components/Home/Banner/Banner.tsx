@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import Lottie from "react-lottie";
+import BannerLottie from "@/lotties/banner.json";
 import { bannerLinks } from "@/utils/bannerLinks";
 import {
   Tooltip,
@@ -9,7 +11,6 @@ import {
 } from "@/components/UI/tooltip";
 import goToSection from "@/utils/goToSection";
 import { motion } from "motion/react";
-import BannerVector from "@/components/Vectors/BannerVector";
 
 const BannerHome = () => {
   const { t } = useTranslation();
@@ -76,10 +77,17 @@ const BannerHome = () => {
       </div>
       <div
         className={
-          "cursor-pointer transition-all hidden place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-full h-fit"
+          "pointer-events-none transition-all hidden place-items-center lg:grid lg:justify-self-end object-cover overflow-hidden w-[400px] h-[400px] xl:w-[600px] xl:h-[600px] 2xl:w-[700px] 2xl:h-[700px]"
         }
       >
-        <BannerVector className="w-full h-full text-primary-color fill-current" />
+        <Lottie
+          options={{
+            loop: true,
+            autoplay: true,
+            animationData: BannerLottie,
+          }}
+          style={{ width: "100%", height: "100%" }}
+        />
       </div>
     </motion.div>
   );
