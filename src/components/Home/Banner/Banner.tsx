@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import CustomButton from "../PrimaryButton/PrimaryButton";
+import CustomButton from "@/components/Home/CustomButton/CustomButton";
 import Lottie from "react-lottie";
 import BannerLottie from "@/lotties/banner.json";
 import { bannerLinks } from "@/utils/bannerLinks";

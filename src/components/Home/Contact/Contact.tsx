@@ -2,7 +2,7 @@ import { Input } from "@/components/UI/input";
 import { Label } from "@/components/UI/label";
 import { Textarea } from "@/components/UI/textarea";
 import { useTranslation } from "react-i18next";
-import CustomButton from "../PrimaryButton/PrimaryButton";
+import CustomButton from "@/components/Home/CustomButton/CustomButton";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactSchemaType } from "@/schemas/contactSchema";
