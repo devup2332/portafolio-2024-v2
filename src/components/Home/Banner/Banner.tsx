@@ -66,7 +66,7 @@ const BannerHome = () => {
             </TooltipProvider>
           ))}
         </div>
-        <div className="flex gap-3">
+        <div className="items-center flex flex-col gap-3 lg:flex-row">
           <CustomButton
             className="bg-primary-color justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
             onClick={() => {
