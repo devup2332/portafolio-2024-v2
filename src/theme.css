@@ -1,15 +1,19 @@
 :root {
+  /* Dark Theme */
   --dark-primary-bg: #040605;
   --dark-text-color-1: #ffffff;
   --dark-text-color-2: #505050;
   --dark-primary-color: #0aab6b;
   --dark-glass-color-bg: 56, 56, 56;
+  --dark-button-hover: #212121;
 
+  /* Light Theme */
   --light-primary-bg: #f0f5f3;
   --light-text-color-1: #000000;
   --light-text-color-2: #505050;
   --light-primary-color: #0aab6b;
   --light-glass-color-bg: 255, 255, 255;
+  --light-button-hover: #e5e7eb;
 }
 
 html.dark {
@@ -18,6 +22,7 @@ html.dark {
   --text-color-2: var(--dark-text-color-2);
   --primary-color: var(--dark-primary-color);
   --glass-color-bg: var(--dark-glass-color-bg);
+  --button-hover: var(--dark-button-hover);
   color-scheme: dark;
 }
 html.light {
@@ -26,5 +31,6 @@ html.light {
   --text-color-2: var(--light-text-color-2);
   --primary-color: var(--light-primary-color);
   --glass-color-bg: var(--light-glass-color-bg);
+  --button-hover: var(--light-button-hover);
   color-scheme: light;
 }

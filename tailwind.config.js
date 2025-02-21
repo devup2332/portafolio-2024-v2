@@ -28,6 +28,7 @@ module.exports = {
         "primary-text-color": "var(--text-color-1)",
         "secondary-text-color": "var(--text-color-2)",
         "primary-bg": "var(--primary-bg)",
+        "button-hover": "var(--button-hover)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

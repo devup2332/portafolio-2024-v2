@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import CustomButton from "../PrimaryButton/PrimaryButton";
 import Lottie from "react-lottie";
 import BannerLottie from "@/lotties/banner.json";
 import { bannerLinks } from "@/utils/bannerLinks";
@@ -66,14 +66,24 @@ const BannerHome = () => {
             </TooltipProvider>
           ))}
         </div>
-        <PrimaryButton
-          className="justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
-          onClick={() => {
-            goToSection("contact");
-          }}
-        >
-          {t("home.banner.body.button")}
-        </PrimaryButton>
+        <div className="flex gap-3">
+          <CustomButton
+            className="bg-primary-color justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
+            onClick={() => {
+              goToSection("contact");
+            }}
+          >
+            {t("home.banner.body.button1")}
+          </CustomButton>
+          <a href="cv.pdf" download="cv.pdf">
+            <CustomButton
+              className="justify-self-center lg:justify-self-start lg:px-10 lg:text-base hover:bg-button-hover"
+              variant="ghost"
+            >
+              {t("home.banner.body.button2")}
+            </CustomButton>
+          </a>
+        </div>
       </div>
       <div
         className={

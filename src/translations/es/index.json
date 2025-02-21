@@ -17,7 +17,8 @@
         "greeting2": "Soy",
         "role": "Desarrollador Full Stack",
         "description": "Soy un desarrollador full stack de Perú con más de 3 años de experiencia en aplicaciones de desarrollo web. Siempre tiendo a implementar la mejor solución que encuentro para cada tarea que me asignan y siempre tengo buena comunicación con mi equipo de trabajo.",
-        "button": "Contactame"
+        "button1": "Contactame",
+        "button2": "Descargar Cv"
       }
     },
     "experience": {

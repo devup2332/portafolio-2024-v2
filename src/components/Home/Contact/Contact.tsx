@@ -2,7 +2,7 @@ import { Input } from "@/components/UI/input";
 import { Label } from "@/components/UI/label";
 import { Textarea } from "@/components/UI/textarea";
 import { useTranslation } from "react-i18next";
-import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import CustomButton from "../PrimaryButton/PrimaryButton";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactSchema, ContactSchemaType } from "@/schemas/contactSchema";
@@ -159,14 +159,14 @@ const ContactHome = () => {
             </div>
           ),
         )}
-        <PrimaryButton
+        <CustomButton
           type="submit"
           className="w-full lg:w-56 lg:col-start-1 lg:col-end-3 lg:justify-self-center gap-2"
           disabled={loading}
         >
           {loading && <LoaderIcon className="animate-spin h-6 w-6" />}
           {t("home.contact.form.button")}
-        </PrimaryButton>
+        </CustomButton>
       </form>
       <h2 className="text-base text-center mt-10 lg:mt-32">
         <span className="text-secondary-text-color">
