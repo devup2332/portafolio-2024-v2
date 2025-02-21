@@ -75,7 +75,7 @@ const HomeHeader = () => {
   }, []);
   return (
     <motion.header
-      className="font-bold text-2xl fixed w-full top-0 left-0 lg:py-8 z-10  bg-primary-bg lg:bg-transparent text-primary-text-color"
+      className="font-bold text-2xl fixed w-full top-0 left-0 lg:py-8 z-10 bg-primary-bg lg:bg-transparent text-text-color-1"
       style={{ animationDelay: "0.5" }}
       initial={{
         translateY: "-200px",
@@ -94,7 +94,7 @@ const HomeHeader = () => {
       }}
     >
       <div
-        className="w-full m-auto max-w-md glassEffect lg:w-10/12 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center py-4 px-12 rounded-2xl"
+        className="w-full m-auto max-w-md lg:w-10/12 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl flex justify-between items-center py-4 px-12 rounded-lg"
         id="homeheader"
       >
         <button onClick={() => goToSection("banner")}>
@@ -113,13 +113,13 @@ const HomeHeader = () => {
                     key={index}
                     className={clsx(
                       "inline-block mx-4 lg:text-base font-normal cursor-pointer hover:text-primary-color transition-colors customUnderline",
-                      item.active ? "text-primary-color underlineFull" : ""
+                      item.active ? "text-primary-color underlineFull" : "",
                     )}
                     onClick={() => handleGoToSection(item.id)}
                   >
                     {t(item.label)}
                   </li>
-                )
+                ),
             )}
           </ul>
         </nav>

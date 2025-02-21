@@ -167,8 +167,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /* GlassEffects */
 @media (min-width: 1024px) {
   #homeheader {
-    background: rgba(var(--glass-color-bg), 0.6);
-    border-radius: 16px;
+    background: rgba(var(--glass-color-bg), 0.4);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.4px);
   }

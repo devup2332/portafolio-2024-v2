@@ -169,9 +169,7 @@ const ContactHome = () => {
         </CustomButton>
       </form>
       <h2 className="text-base text-center mt-10 lg:mt-32">
-        <span className="text-secondary-text-color">
-          {t("home.footer.text")}
-        </span>{" "}
+        <span className="text-text-color-2">{t("home.footer.text")}</span>{" "}
         <button
           onClick={() => goToSection("banner")}
           className="font-bold cursor-pointer hover:text-primary-color transition-colors outline-none"

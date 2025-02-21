@@ -17,12 +17,12 @@
         }
       },
       "body": {
-        "greeting": "Hi I'm",
-        "name": "Diego",
+        "greeting": "Hi, my name is",
+        "name": "Diego Raul",
         "greeting2": "I'm a",
-        "role": "Full Stack Developer",
-        "description": "I’m a full stack developer from Peru with over 3 years of experience in web development applications. I always tend to implement the best solution I find for each task assigned to me and I always have good communication with my work team",
-        "button1": "Contact me",
+        "role": "Full Stack Engineer",
+        "description": "I'm a Peruvian full stack developer specialized in Javascript and Typescript with a great passion for creating high quality software",
+        "button1": "Lets talk",
         "button2": "Download Cv"
       }
     },

@@ -36,29 +36,29 @@ const BannerHome = () => {
         once: true,
       }}
     >
-      <div className="grid gap-4 lg:gap-6">
-        <h1 className="font-bold text-4xl w-full text-center lg:text-left lg:text-6xl xl:text-8xl">
-          {t("home.banner.body.greeting")}{" "}
-          <span className="text-primary-color">
-            {t("home.banner.body.name")}
-          </span>
+      <div className="grid gap-4 lg:gap-8">
+        <p className="font-bold text-primary-color text-lg lg:text-left">
+          {t("home.banner.body.greeting")}
+        </p>
+        <h1 className="text-text-color-1 text-5xl lg:text-6xl xl:text-8xl font-bold">
+          {t("home.banner.body.name")}
         </h1>
-        <h2 className="font-bold text-sm text-center lg:text-left lg:text-base xl:text-xl">
+        <h2 className="font-normal text-sm text-left lg:text-left lg:text-base xl:text-xl">
           {t("home.banner.body.greeting2")}{" "}
-          <span className="text-primary-color">
+          <span className="text-primary-color font-bold">
             {t("home.banner.body.role")}
           </span>
         </h2>
-        <p className="font-normal text-sm text-center lg:text-left lg:text-base">
+        <p className="font-normal text-sm text-left lg:text-base">
           {t("home.banner.body.description")}
         </p>
-        <div className="flex gap-3 justify-center w-full lg:justify-start xl:gap-5">
+        <div className="flex gap-3 justify-start w-full xl:gap-5">
           {bannerLinks.map((item, index) => (
             <TooltipProvider key={index}>
               <Tooltip key={index}>
                 <TooltipTrigger>
                   <a href={item.link} target="_blank">
-                    <item.Icon className="text-primary-color w-8 h-8" />
+                    <item.Icon className="w-8 h-8 hover:text-primary-color" />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent>{item.tooptip}</TooltipContent>
@@ -66,9 +66,9 @@ const BannerHome = () => {
             </TooltipProvider>
           ))}
         </div>
-        <div className="items-center flex flex-col gap-3 lg:flex-row">
+        <div className="flex gap-3 lg:flex-row">
           <CustomButton
-            className="bg-primary-color justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
+            className="bg-primary-color text-white justify-self-center lg:justify-self-start lg:px-10 lg:text-base"
             onClick={() => {
               goToSection("contact");
             }}

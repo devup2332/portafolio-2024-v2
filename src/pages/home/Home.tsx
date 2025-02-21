@@ -34,7 +34,7 @@ const Home = () => {
   }
 
   return (
-    <div className="text-primary-text-color font-inter justify-center flex overflow-x-hidden">
+    <div className="text-text-color-1 font-inter justify-center flex overflow-x-hidden">
       <HomeHeader />
       <div className="w-10/12 m-auto max-w-md lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl pb-28">
         <BannerHome />

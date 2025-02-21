@@ -67,7 +67,7 @@ const BottomNav = () => {
             <Icon
               className={clsx(
                 "w-6 h-6",
-                active ? "text-primary-color" : "text-primary-text-color",
+                active ? "text-primary-color" : "text-text-color-1",
               )}
             />
           </div>
