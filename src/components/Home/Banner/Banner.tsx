@@ -16,7 +16,7 @@ const BannerHome = () => {
   const { t } = useTranslation();
   return (
     <motion.div
-      className="h-screen flex justify-center items-center lg:grid lg:grid-cols-2 lg:gap-4 lg:h-screen xl:gap-16"
+      className="h-screen flex justify-center items-center lg:flex-row lg:gap-4 lg:h-screen xl:gap-16"
       id="banner"
       initial={{
         translateX: "200px",
@@ -36,7 +36,7 @@ const BannerHome = () => {
         once: true,
       }}
     >
-      <div className="grid gap-4 lg:gap-8">
+      <div className="grid gap-4 lg:gap-8 lg:w-5/12">
         <p className="font-bold text-primary-color text-lg lg:text-left">
           {t("home.banner.body.greeting")}
         </p>
