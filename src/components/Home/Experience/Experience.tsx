@@ -1,8 +1,8 @@
-import { experienceHistory } from "@/data";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 import "./Experience.module.css";
 import { motion } from "motion/react";
+import { experiences } from "@/utils/data/experienceData";
 
 const ExperienceHome = () => {
   const { t, i18n } = useTranslation();
@@ -32,7 +32,7 @@ const ExperienceHome = () => {
       </h1>
       <div className="mt-16 flex lg:max-w-5xl mx-auto">
         <div className="hidden lg:grid">
-          {experienceHistory.map((item, index) => {
+          {experiences.map((item, index) => {
             const isPar = index % 2 === 0;
             return (
               <div
@@ -61,7 +61,7 @@ const ExperienceHome = () => {
           })}
         </div>
         <div className="grid ">
-          {experienceHistory.map((item, index) => {
+          {experiences.map((item, index) => {
             const isPar = index % 2 === 0;
             return (
               <div

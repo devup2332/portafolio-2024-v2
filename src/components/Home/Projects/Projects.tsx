@@ -1,10 +1,19 @@
-import { Icons, projects } from "@/data";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/UI/tooltip";
+import { useStore } from "@/store";
+import { projects } from "@/utils/data/projectsData";
+import { ICONS } from "@/utils/icons";
 
 const Projects = () => {
   const { t, i18n } = useTranslation();
+  const { theme } = useStore();
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -61,21 +70,30 @@ const Projects = () => {
               <img
                 src={p.urlImage}
                 alt={p.name}
-                className="w-full h-60 lg:w-[440px] lg:h-[300px] rounded-xl object-cover block aspect-video"
+                className="w-full h-72 lg:w-[440px] lg:h-[300px] rounded-xl object-cover block aspect-video"
               />
               <div className="transition-all flex flex-col gap-6">
-                <h2 className="font-bold text-3xl">{p.name}</h2>
+                <h2 className="font-extrabold text-3xl">{p.name}</h2>
                 <p className="text-sm text-text-color-1">
                   {p.descriptions[i18n.language as "en" | "es"]}
                 </p>
 
-                <p className="font-bold text-sm text-primary-color">
+                <p className="font-bold text-sm">
                   {t("home.projects.items.stack")}
                 </p>
                 <div className="flex items-center flex-wrap gap-x-6 gap-y-2">
                   {p.stack.map((s, i) => {
-                    const Icon = Icons[s];
-                    return <Icon className="w-8 h-fit" key={i} />;
+                    const Icon = ICONS[s.icon];
+                    return (
+                      <TooltipProvider key={i}>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Icon className="w-8 h-fit" theme={theme} key={i} />
+                          </TooltipTrigger>
+                          <TooltipContent>{s.name}</TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    );
                   })}
                 </div>
               </div>

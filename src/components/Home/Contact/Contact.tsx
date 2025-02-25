@@ -10,8 +10,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
 import { motion } from "motion/react";
-import { sendMail } from "@/utils/sendEmail";
-import goToSection from "@/utils/goToSection";
+import { goToSection, sendMail } from "@/utils/methods";
 
 interface InputType {
   label: string;

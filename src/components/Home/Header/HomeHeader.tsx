@@ -1,6 +1,4 @@
 import { Button } from "@/components/UI/button";
-import goToSection, { Section } from "@/utils/goToSection";
-import { homeheaderLinks } from "@/utils/homeHeaderLinks";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -8,6 +6,9 @@ import { motion } from "motion/react";
 import MoonIcon from "@/components/Icons/MoonIcon";
 import SunIcon from "@/components/Icons/SunIcon";
 import { useStore } from "@/store";
+import { goToSection } from "@/utils/methods";
+import { homeheaderLinks } from "@/utils/links/HomeHeaderLinks";
+import { Section } from "@/types/generalTypes";
 
 type ILanguageProp = "en" | "es";
 

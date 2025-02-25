@@ -1,24 +1,7 @@
-import { SVGProps } from "react";
-import { Section } from "./goToSection";
-import { ICONS } from "./icons";
+import { HeaderLink } from "@/types/headerTypes";
+import { ICONS } from "../icons";
 
-interface IHomeHeaderLink {
-  label: string;
-  path: string;
-  sub: boolean;
-  id?: Section;
-  active: boolean;
-  Icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-  visibleRange?: {
-    start: number;
-    end: number;
-  };
-  children?: {
-    label: string;
-    value: string;
-  }[];
-}
-export const homeheaderLinks: IHomeHeaderLink[] = [
+export const homeheaderLinks: HeaderLink[] = [
   {
     label: "home.banner.menu.home",
     path: "/",

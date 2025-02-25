@@ -1,5 +1,6 @@
-import goToSection, { Section } from "@/utils/goToSection";
-import { homeheaderLinks } from "@/utils/homeHeaderLinks";
+import { Section } from "@/types/generalTypes";
+import { homeheaderLinks } from "@/utils/links/HomeHeaderLinks";
+import { goToSection } from "@/utils/methods";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 

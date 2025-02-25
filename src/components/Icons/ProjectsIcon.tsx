@@ -1,6 +1,6 @@
-import { SVGProps } from "react";
+import { SVGProps } from "@/types/icontypes";
 
-const ProjectsIcon = (props: SVGProps<SVGSVGElement>) => {
+const ProjectsIcon: React.FC<SVGProps> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

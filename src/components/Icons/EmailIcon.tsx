@@ -1,6 +1,6 @@
-import { SVGProps } from "react";
+import { SVGProps } from "@/types/icontypes";
 
-const EmailIcon = (props: SVGProps<SVGSVGElement>) => {
+const EmailIcon: React.FC<SVGProps> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
