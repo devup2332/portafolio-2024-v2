@@ -23,10 +23,7 @@ const FormField: React.FC<FormFieldProps> = (props) => {
   const { register, className, label, type, name, placeholder, error } = props;
   return (
     <div
-      className={cn(
-        "grid gap-3",
-        type === "textarea" ? "col-start-1 col-end-3" : "",
-      )}
+      className={cn("grid gap-3", type === "textarea" ? "lg:col-span-2" : "")}
     >
       <Label>{t(label)}</Label>
       {type !== "textarea" ? (
