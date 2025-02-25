@@ -29,4 +29,5 @@ export type Icon =
   | "github"
   | "linkedin"
   | "instagram"
+  | "firebase"
   | "javascript";

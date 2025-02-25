@@ -1,6 +1,3 @@
-import { Input } from "@/components/UI/input";
-import { Label } from "@/components/UI/label";
-import { Textarea } from "@/components/UI/textarea";
 import { useTranslation } from "react-i18next";
 import CustomButton from "@/components/Home/CustomButton/CustomButton";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -11,6 +8,7 @@ import { useState } from "react";
 import { LoaderIcon } from "@/components/Icons";
 import { motion } from "motion/react";
 import { goToSection, sendMail } from "@/utils/methods";
+import FormField from "./FormField";
 
 interface InputType {
   label: string;
@@ -60,7 +58,13 @@ const inputs: InputType[] = [
 
 const ContactHome = () => {
   const { t } = useTranslation();
-  const { register, handleSubmit, reset } = useForm<ContactSchemaType>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    getValues,
+    formState: { errors },
+  } = useForm<ContactSchemaType>({
     resolver: zodResolver(ContactSchema),
   });
   const [loading, setLoading] = useState(false);
@@ -68,7 +72,7 @@ const ContactHome = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (message) => {
     try {
       setLoading(true);
-      await sendMail(message as any);
+      await sendMail(message as ContactSchemaType);
       setLoading(false);
       reset();
       toast.custom(() => (
@@ -79,7 +83,7 @@ const ContactHome = () => {
           <p className="text-sm">{t("home.contact.toast.success.body")}</p>
         </div>
       ));
-    } catch (err: any) {
+    } catch (err) {
       setLoading(false);
       reset();
       toast.custom(() => (
@@ -88,14 +92,19 @@ const ContactHome = () => {
             {t("home.contact.toast.error.title")}
           </h1>
           <p className="text-sm">
-            {err.message || t("home.contact.toast.error.body")}
+            {(err as Error).message || t("home.contact.toast.error.body")}
           </p>
         </div>
       ));
     }
   };
 
-  const onError = () => {};
+  const onError = () => {
+    const val = getValues();
+    console.log({ val });
+    console.log({ errors });
+  };
+  console.log({ errors });
 
   return (
     <motion.div
@@ -121,43 +130,22 @@ const ContactHome = () => {
         {t("home.contact.title")}
       </h1>
       <form
-        action=""
         className="grid gap-5 mt-14 lg:grid-cols-2 max-w-2xl m-auto lg:gap-10"
         onSubmit={handleSubmit(onSubmit, onError)}
-        autoComplete="off"
       >
-        {inputs.map((input, index) =>
-          input.type !== "textarea" ? (
-            <div key={index} className="grid gap-5">
-              <Label className="font-bold" htmlFor={input.name}>
-                {t(input.label)}
-              </Label>
-              <Input
-                type={input.type}
-                id={input.name}
-                placeholder={t(input.placeholder)}
-                autoComplete="off"
-                autoCorrect="off"
-                className="h-12"
-                required={input.required}
-                {...register(input.name, { required: input.required })}
-              />
-            </div>
-          ) : (
-            <div key={index} className="grid gap-5 lg:col-start-1 lg:col-end-3">
-              <Label className="font-bold" htmlFor={input.name}>
-                {t(input.label)}
-              </Label>
-              <Textarea
-                id={input.name}
-                placeholder={t(input.placeholder)}
-                className="resize-none"
-                rows={10}
-                {...register(input.name)}
-              ></Textarea>
-            </div>
-          ),
-        )}
+        {inputs.map((input, index) => (
+          <FormField
+            label={input.label}
+            type={input.type}
+            name={input.name}
+            register={register}
+            error={errors[input.name] && errors[input.name]?.message}
+            placeholder={input.placeholder}
+            className="h-10"
+            required={input.required}
+            key={index}
+          />
+        ))}
         <CustomButton
           type="submit"
           className="w-full lg:w-56 lg:col-start-1 lg:col-end-3 lg:justify-self-center gap-2"

@@ -1,8 +1,8 @@
-import { IContactSchema } from "@/schemas/contactSchema";
+import { ContactSchemaType } from "@/schemas/contactSchema";
 import { fetchAPI } from "./fetch";
 import { Section } from "@/types/generalTypes";
 
-export const sendMail = async (message: IContactSchema) => {
+export const sendMail = async (message: ContactSchemaType) => {
   return await fetchAPI("/api/contact/send-email", {
     method: "POST",
     headers: {

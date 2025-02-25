@@ -22,6 +22,7 @@ import StorybookIcon from "@/components/Icons/StorybookIcon";
 import ApolloIcon from "@/components/Icons/ApolloIcon";
 import { Icon, SVGProps } from "@/types/icontypes";
 import { GithubIcon, InstagramIcon, LinkedinIcon } from "@/components/Icons";
+import FirebaseIcon from "@/components/Icons/FirebaseIcon";
 
 export const ICONS: Record<Icon, React.FC<SVGProps>> = {
   home: HomeIcon,
@@ -50,4 +51,5 @@ export const ICONS: Record<Icon, React.FC<SVGProps>> = {
   instagram: InstagramIcon,
   linkedin: LinkedinIcon,
   github: GithubIcon,
+  firebase: FirebaseIcon,
 };

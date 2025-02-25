@@ -16,6 +16,10 @@ export const projects: Project[] = [
         icon: "figma",
       },
       {
+        name: "Firebase",
+        icon: "firebase",
+      },
+      {
         name: "TypeScript",
         icon: "typescript",
       },
@@ -45,16 +49,12 @@ export const projects: Project[] = [
         icon: "reactNative",
       },
       {
-        name: "GraphQL",
-        icon: "graphql",
-      },
-      {
-        name: "Apollo Server",
-        icon: "apollo",
-      },
-      {
         name: "Expo",
         icon: "expo",
+      },
+      {
+        name: "Figma",
+        icon: "figma",
       },
       {
         name: "TypeScript",
@@ -92,6 +92,10 @@ export const projects: Project[] = [
       {
         name: "Expo",
         icon: "expo",
+      },
+      {
+        name: "Figma",
+        icon: "figma",
       },
       {
         name: "TypeScript",

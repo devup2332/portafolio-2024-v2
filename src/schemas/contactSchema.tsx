@@ -1,19 +1,25 @@
 import { z } from "zod";
 
-export interface IContactSchema {
-  email: string;
-  firstName: string;
-  lastName: string;
-  phone: string;
-  message: string;
-}
+export const ContactSchema = z.object({
+  firstName: z.string().min(1, {
+    message: "First name is required",
+  }),
+  lastName: z.string().min(1, {
+    message: "Last name is required",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email",
+  }),
+  phone: z
+    .string()
+    .min(1, {
+      message: "Phone is required",
+    })
+    .transform((val) => parseInt(val)),
 
-export const ContactSchema: z.ZodType<IContactSchema> = z.object({
-  email: z.string().email(),
-  firstName: z.string().min(1),
-  lastName: z.string().min(1),
-  phone: z.string().min(1),
-  message: z.string().min(1),
+  message: z.string().min(1, {
+    message: "Message is required",
+  }),
 });
 
 export type ContactSchemaType = z.infer<typeof ContactSchema>;
