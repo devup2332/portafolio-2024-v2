@@ -1,5 +1,5 @@
-import { projects } from "@/data";
-import { useEffect, useRef } from "react";
+import { Icons, projects } from "@/data";
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
@@ -7,7 +7,6 @@ const Projects = () => {
   const { t, i18n } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {}, []);
   return (
     <motion.div
       id="projects"
@@ -29,17 +28,19 @@ const Projects = () => {
         once: true,
       }}
     >
-      <h1 className="text-primary-color text-4xl font-bold text-center lg:text-6xl">
+      <h1 className="text-primary-color text-left text-4xl font-bold lg:text-center lg:text-6xl">
         {t("home.projects.title")}
       </h1>
+      <p className="mt-2 lg:text-center lg:mt-6 lg:text-lg">
+        {t("home.projects.subtitle")}
+      </p>
 
-      <div className="mt-24 grid lg:grid-cols-2 xl:grid-cols-3 gap-12 pb-28">
+      <div className="mt-12 grid gap-12 pb-28 lg:mt-24 lg:max-w-4xl justify-self-center">
         {projects.map((p, index) => {
           return (
             <motion.div
               key={index}
-              className="rounded-xl overflow-hidden relative group cursor-pointer grid"
-              onClick={() => p.links && window.open(p.links[0]?.url, "_blank")}
+              className="flex flex-col lg:flex-row gap-6 2xl:gap-12"
               initial={{
                 translateY: "150px",
                 opacity: 0,
@@ -60,26 +61,21 @@ const Projects = () => {
               <img
                 src={p.urlImage}
                 alt={p.name}
-                className="w-full h-full object-cover block"
-                style={{
-                  aspectRatio: "16/12",
-                }}
+                className="w-full h-60 lg:w-[440px] lg:h-[300px] rounded-xl object-cover block aspect-video"
               />
-              <div className="absolute top-0 left-0 w-full h-full bg-black/60 opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end gap-3 p-4 sm:p-10 text-white">
-                <h2 className="font-bold">{p.name}</h2>
-                <p className="text-sm">
+              <div className="transition-all flex flex-col gap-6">
+                <h2 className="font-bold text-3xl">{p.name}</h2>
+                <p className="text-sm text-text-color-1">
                   {p.descriptions[i18n.language as "en" | "es"]}
                 </p>
-                <div className="flex flex-wrap gap-x-3 gap-y-2">
+
+                <p className="font-bold text-sm text-primary-color">
+                  {t("home.projects.items.stack")}
+                </p>
+                <div className="flex items-center flex-wrap gap-x-6 gap-y-2">
                   {p.stack.map((s, i) => {
-                    return (
-                      <span
-                        className="bg-primary-color rounded-3xl px-2 py-1 text-xs"
-                        key={i}
-                      >
-                        {s}
-                      </span>
-                    );
+                    const Icon = Icons[s];
+                    return <Icon className="w-8 h-fit" key={i} />;
                   })}
                 </div>
               </div>

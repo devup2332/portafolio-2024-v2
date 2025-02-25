@@ -30,7 +30,11 @@
       "title": "Experience"
     },
     "projects": {
-      "title": "Projects"
+      "title": "Projects",
+      "subtitle": "Some of the projects I have worked on",
+      "items": {
+        "stack": "Tech Stack"
+      }
     },
     "contact": {
       "title": "Contact",

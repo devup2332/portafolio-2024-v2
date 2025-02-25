@@ -25,7 +25,11 @@
       "title": "Experiencia"
     },
     "projects": {
-      "title": "Proyectos"
+      "title": "Proyectos",
+      "subtitle": "Algunos de los proyectos en los que he trabajado",
+      "items": {
+        "stack": "Tecnologias"
+      }
     },
     "contact": {
       "title": "Contacto",

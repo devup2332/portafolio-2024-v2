@@ -1,6 +1,34 @@
+import CssIcon from "./components/Icons/CssIcon";
+import ExpoIcon from "./components/Icons/ExpoIcon";
+import FigmaIcon from "./components/Icons/FigmaIcon";
+import GraphqlIcon from "./components/Icons/GraphqlIcon";
+import JavascriptIcon from "./components/Icons/JavascriptIcon";
+import NextJsIcon from "./components/Icons/NextJsIcon";
+import NodejsIcon from "./components/Icons/NodejsIcon";
+import ReactIcon from "./components/Icons/ReactIcon";
+import TypescriptIcon from "./components/Icons/TypescriptIcon";
+import { Project, Technologies } from "./types/icontypes";
+import TailwindIcon from "./components/Icons/TailwindIcon";
+import PostgresqlIcon from "./components/Icons/PostgresqlIcon";
+import { SVGProps } from "react";
+
 export const bannerImageUrl =
   "https://images.unsplash.com/photo-1467010234262-77bada75a47d?q=80&w=3373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
+export const Icons: Record<Technologies, React.FC<SVGProps<SVGSVGElement>>> = {
+  typescript: TypescriptIcon,
+  nodejs: NodejsIcon,
+  react: ReactIcon,
+  reactNative: ReactIcon,
+  figma: FigmaIcon,
+  nextjs: NextJsIcon,
+  css: CssIcon,
+  expo: ExpoIcon,
+  graphql: GraphqlIcon,
+  javascript: JavascriptIcon,
+  tailwindcss: TailwindIcon,
+  postgresql: PostgresqlIcon,
+};
 export const experienceHistory = [
   {
     business: "Lapzo",
@@ -48,15 +76,9 @@ export const experienceHistory = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
-    stack: [
-      "React Native",
-      "Expo",
-      "TypeScript",
-      "React Navigation",
-      "Zustand",
-    ],
+    stack: ["react", "nodejs", "typescript", "figma", "javascript", "expo"],
     name: "Coffee App",
     links: [
       {
@@ -72,7 +94,7 @@ export const projects = [
     },
   },
   {
-    stack: ["React Native", "Expo", "TypeScript", "Nodejs", "React Navigation"],
+    stack: ["reactNative", "expo", "figma", "typescript", "nodejs"],
     name: "Airbnb Clone",
     links: [
       {
@@ -88,15 +110,7 @@ export const projects = [
     },
   },
   {
-    stack: [
-      "Expo",
-      "Tailwind",
-      "TypeScript",
-      "Expo Router",
-      "Zustand",
-      "Neon DB",
-      "Clerk Auth",
-    ],
+    stack: ["expo", "tailwindcss", "typescript", "postgresql", "reactNative"],
     name: "Uber Clone",
     links: [
       {
