@@ -36,7 +36,7 @@ const BannerHome = () => {
         once: true,
       }}
     >
-      <div className="grid gap-4 lg:gap-8 lg:w-5/12 -mt-8">
+      <div className="grid gap-4 lg:gap-8 lg:w-5/12 -mt-8 bg-red-500">
         <p className="font-bold text-primary-color text-lg lg:text-left">
           {t("home.banner.body.greeting")}
         </p>
