@@ -46,7 +46,7 @@ const FormField: React.FC<FormFieldProps> = (props) => {
             className={cn("resize-none h-60", error && "border-red-500")}
             rows={10}
             {...register(name)}
-          ></Textarea>
+          />
         </>
       )}
       {error && <span className="text-red-500 text-sm">{error}</span>}
